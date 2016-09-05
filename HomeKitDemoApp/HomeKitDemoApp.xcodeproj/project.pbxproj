@@ -15,6 +15,7 @@
 		2BD1F2C51D7D96970096280E /* HomeKitDemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2C41D7D96970096280E /* HomeKitDemoAppTests.swift */; };
 		2BD1F2D01D7D96970096280E /* HomeKitDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2CF1D7D96970096280E /* HomeKitDemoAppUITests.swift */; };
 		2BD1F2DE1D7D96C60096280E /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD1F2DD1D7D96C60096280E /* HomeKit.framework */; };
+		3BA5977E1D7D9D000002B61C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5977D1D7D9D000002B61C /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		2BD1F2D11D7D96970096280E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BD1F2DD1D7D96C60096280E /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		2BD1F2DF1D7D96C60096280E /* HomeKitDemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeKitDemoApp.entitlements; sourceTree = "<group>"; };
+		3BA5977D1D7D9D000002B61C /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				2BD1F2B61D7D96970096280E /* Assets.xcassets */,
 				2BD1F2B81D7D96970096280E /* LaunchScreen.storyboard */,
 				2BD1F2BB1D7D96970096280E /* Info.plist */,
+				3BA5977D1D7D9D000002B61C /* Constant.swift */,
 			);
 			path = HomeKitDemoApp;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			files = (
 				2BD1F2B21D7D96970096280E /* ViewController.swift in Sources */,
 				2BD1F2B01D7D96970096280E /* AppDelegate.swift in Sources */,
+				3BA5977E1D7D9D000002B61C /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +508,7 @@
 				2BD1F2D61D7D96970096280E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2BD1F2D71D7D96970096280E /* Build configuration list for PBXNativeTarget "HomeKitDemoAppTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +517,7 @@
 				2BD1F2D91D7D96970096280E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2BD1F2DA1D7D96970096280E /* Build configuration list for PBXNativeTarget "HomeKitDemoAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +526,7 @@
 				2BD1F2DC1D7D96970096280E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
