@@ -8,18 +8,35 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ConnectcBridgeViewController: UIViewController {
 
+    @IBOutlet var bridgeLbl: UILabel!
+    @IBOutlet var connectBridgeBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.initialSetup()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    // MARK: Private Methods
+    
+    func initialSetup(){
+        connectBridgeBtn.layer.borderWidth = 1.0
+        connectBridgeBtn.layer.borderColor = UIColor.blackColor().CGColor
+        
+    }
+    
+    @IBAction func connectBridgeAction(sender: AnyObject) {
+        
+    }
 
 }
 

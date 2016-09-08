@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Connectc Bridge View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HomeKitDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ConnectcBridgeViewController" customModule="HomeKitDemoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,29 +17,46 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4B-r2-Vvc">
+                                <rect key="frame" x="45" y="70" width="510" height="233"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="233" id="Pi8-Bx-9bc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVr-pz-e2I">
+                                <rect key="frame" x="45" y="500" width="510" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HNY-K9-qO7"/>
+                                </constraints>
+                                <state key="normal" title="Search Bridge"/>
+                                <connections>
+                                    <action selector="connectBridgeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EvW-NH-7SK"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Z4B-r2-Vvc" firstAttribute="trailing" secondItem="nVr-pz-e2I" secondAttribute="trailing" id="7XG-rz-xsP"/>
+                            <constraint firstItem="Z4B-r2-Vvc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="25" id="IWb-7F-U8D"/>
+                            <constraint firstItem="Z4B-r2-Vvc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="VAf-XD-IK7"/>
+                            <constraint firstItem="Z4B-r2-Vvc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zr2-3h-v3D"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nVr-pz-e2I" secondAttribute="bottom" constant="50" id="i8h-p1-mo8"/>
+                            <constraint firstItem="Z4B-r2-Vvc" firstAttribute="leading" secondItem="nVr-pz-e2I" secondAttribute="leading" id="xCf-GQ-cxt"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bridgeLbl" destination="Z4B-r2-Vvc" id="Gjo-Y4-slW"/>
+                        <outlet property="connectBridgeBtn" destination="nVr-pz-e2I" id="ba8-PM-88G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="p19-Tu-c8n">
-            <objects>
-                <viewController id="D1f-zQ-dgx" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="x6G-s4-X8l"/>
-                        <viewControllerLayoutGuide type="bottom" id="DKd-iD-gAK"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dLm-mF-KFc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7JK-1f-HZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="305" y="1061"/>
+            <point key="canvasLocation" x="291" y="399"/>
         </scene>
     </scenes>
 </document>

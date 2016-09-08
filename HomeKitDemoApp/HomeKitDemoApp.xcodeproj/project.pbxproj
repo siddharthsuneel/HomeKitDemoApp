@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BD1F2B01D7D96970096280E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2AF1D7D96970096280E /* AppDelegate.swift */; };
-		2BD1F2B21D7D96970096280E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B11D7D96970096280E /* ViewController.swift */; };
+		2BD1F2B21D7D96970096280E /* ConnectcBridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B11D7D96970096280E /* ConnectcBridgeViewController.swift */; };
 		2BD1F2B51D7D96970096280E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B31D7D96970096280E /* Main.storyboard */; };
 		2BD1F2B71D7D96970096280E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B61D7D96970096280E /* Assets.xcassets */; };
 		2BD1F2BA1D7D96970096280E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B81D7D96970096280E /* LaunchScreen.storyboard */; };
@@ -38,7 +38,7 @@
 /* Begin PBXFileReference section */
 		2BD1F2AC1D7D96970096280E /* HomeKitDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeKitDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD1F2AF1D7D96970096280E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2BD1F2B11D7D96970096280E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2BD1F2B11D7D96970096280E /* ConnectcBridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectcBridgeViewController.swift; sourceTree = "<group>"; };
 		2BD1F2B41D7D96970096280E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2BD1F2B61D7D96970096280E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BD1F2B91D7D96970096280E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 			children = (
 				2BD1F2DF1D7D96C60096280E /* HomeKitDemoApp.entitlements */,
 				2BD1F2AF1D7D96970096280E /* AppDelegate.swift */,
-				2BD1F2B11D7D96970096280E /* ViewController.swift */,
+				2BD1F2B11D7D96970096280E /* ConnectcBridgeViewController.swift */,
 				2BD1F2B31D7D96970096280E /* Main.storyboard */,
 				2BD1F2B61D7D96970096280E /* Assets.xcassets */,
 				2BD1F2B81D7D96970096280E /* LaunchScreen.storyboard */,
@@ -271,7 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BD1F2B21D7D96970096280E /* ViewController.swift in Sources */,
+				2BD1F2B21D7D96970096280E /* ConnectcBridgeViewController.swift in Sources */,
 				2BD1F2B01D7D96970096280E /* AppDelegate.swift in Sources */,
 				3BA5977E1D7D9D000002B61C /* Constant.swift in Sources */,
 			);
@@ -345,6 +345,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -367,6 +368,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -390,6 +392,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -405,6 +408,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -419,7 +423,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HomeKitDemoApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Siddharth.HomeKitDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -435,7 +439,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HomeKitDemoApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Siddharth.HomeKitDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
