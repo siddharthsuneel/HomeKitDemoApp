@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3B9031A03D04B5095C176CDAD8E76876BBA265EA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2F87D0671B829EA91F004E89895EB3847D58F640" : 0,
+    "3B9031A03D04B5095C176CDAD8E76876BBA265EA" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CE960231-352C-4694-B268-7EA25A26CD0B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2F87D0671B829EA91F004E89895EB3847D58F640" : "..\/Downloads\/HomeKit-Swift",
+    "3B9031A03D04B5095C176CDAD8E76876BBA265EA" : "HomeKitDemoApp\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "HomeKitDemoApp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "HomeKitDemoApp\/HomeKitDemoApp.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/gerrit.dminc-gtc.com:29418\/HomeKit-POC-iOS",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2F87D0671B829EA91F004E89895EB3847D58F640"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/siddharthsuneel\/HomeKitDemoApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3B9031A03D04B5095C176CDAD8E76876BBA265EA"
+    }
+  ]
+}

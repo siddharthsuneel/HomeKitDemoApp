@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B22FCFF1D82CD1B00586B97 /* HueSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B22FCFE1D82CD1B00586B97 /* HueSDK_iOS.framework */; };
 		2BD1F2B01D7D96970096280E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2AF1D7D96970096280E /* AppDelegate.swift */; };
 		2BD1F2B21D7D96970096280E /* ConnectcBridgeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B11D7D96970096280E /* ConnectcBridgeVC.swift */; };
 		2BD1F2B51D7D96970096280E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B31D7D96970096280E /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B22FCFE1D82CD1B00586B97 /* HueSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HueSDK_iOS.framework; path = HomeKitDemoApp/HueSDK_iOS.framework; sourceTree = "<group>"; };
 		2BD1F2AC1D7D96970096280E /* HomeKitDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeKitDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD1F2AF1D7D96970096280E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BD1F2B11D7D96970096280E /* ConnectcBridgeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectcBridgeVC.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B22FCFF1D82CD1B00586B97 /* HueSDK_iOS.framework in Frameworks */,
 				2BD1F2DE1D7D96C60096280E /* HomeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +88,7 @@
 		2BD1F2A31D7D96970096280E = {
 			isa = PBXGroup;
 			children = (
+				2B22FCFE1D82CD1B00586B97 /* HueSDK_iOS.framework */,
 				2BD1F2DD1D7D96C60096280E /* HomeKit.framework */,
 				2BD1F2AE1D7D96970096280E /* HomeKitDemoApp */,
 				2BD1F2C31D7D96970096280E /* HomeKitDemoAppTests */,
@@ -426,6 +430,10 @@
 				CODE_SIGN_ENTITLEMENTS = HomeKitDemoApp/HomeKitDemoApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HomeKitDemoApp",
+				);
 				INFOPLIST_FILE = HomeKitDemoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -442,6 +450,10 @@
 				CODE_SIGN_ENTITLEMENTS = HomeKitDemoApp/HomeKitDemoApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HomeKitDemoApp",
+				);
 				INFOPLIST_FILE = HomeKitDemoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
