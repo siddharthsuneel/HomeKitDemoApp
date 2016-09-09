@@ -85,6 +85,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B22FD001D82D29D00586B97 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3BB952C11D827A1000B1DDEF /* AppliancesVC.swift */,
+				2BD1F2B11D7D96970096280E /* ConnectcBridgeVC.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		2B22FD011D82D2B400586B97 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2BD1F2B31D7D96970096280E /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		2B22FD031D82D2C300586B97 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3BA5977D1D7D9D000002B61C /* Constant.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		2BD1F2A31D7D96970096280E = {
 			isa = PBXGroup;
 			children = (
@@ -110,15 +135,14 @@
 		2BD1F2AE1D7D96970096280E /* HomeKitDemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				2BD1F2DF1D7D96C60096280E /* HomeKitDemoApp.entitlements */,
 				2BD1F2AF1D7D96970096280E /* AppDelegate.swift */,
-				2BD1F2B11D7D96970096280E /* ConnectcBridgeVC.swift */,
-				2BD1F2B31D7D96970096280E /* Main.storyboard */,
+				2B22FD031D82D2C300586B97 /* Helper */,
+				2B22FD011D82D2B400586B97 /* Storyboards */,
+				2B22FD001D82D29D00586B97 /* View Controllers */,
+				2BD1F2DF1D7D96C60096280E /* HomeKitDemoApp.entitlements */,
 				2BD1F2B61D7D96970096280E /* Assets.xcassets */,
 				2BD1F2B81D7D96970096280E /* LaunchScreen.storyboard */,
 				2BD1F2BB1D7D96970096280E /* Info.plist */,
-				3BA5977D1D7D9D000002B61C /* Constant.swift */,
-				3BB952C11D827A1000B1DDEF /* AppliancesVC.swift */,
 			);
 			path = HomeKitDemoApp;
 			sourceTree = "<group>";
