@@ -1,0 +1,309 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "ConnectcBridgeViewController"
+provides-nominal:
+- "C14HomeKitDemoApp28ConnectcBridgeViewController"
+provides-member:
+- ["C14HomeKitDemoApp28ConnectcBridgeViewController", ""]
+provides-dynamic-lookup:
+- "viewDidLoad"
+- "bridgeLbl"
+- "initialSetup"
+- "didReceiveMemoryWarning"
+- "connectBridgeBtn"
+- "connectBridgeAction"
+depends-top-level:
+- "UIButton"
+- "ConnectcBridgeViewController"
+- "UIViewController"
+- "AnyObject"
+- !private "UIColor"
+- "UILabel"
+depends-member:
+- !private ["Ps9AnyObject", "CGColor"]
+- !private ["Ps9AnyObject", "UIColor"]
+- !private ["Ps9AnyObject", "blackColor"]
+- !private ["Ps9AnyObject", "borderColor"]
+- !private ["Ps9AnyObject", "borderWidth"]
+- ["Ps9AnyObject", "bridgeLbl"]
+- ["Ps9AnyObject", "connectBridgeAction"]
+- ["Ps9AnyObject", "connectBridgeBtn"]
+- ["Ps9AnyObject", "didReceiveMemoryWarning"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "initialSetup"]
+- !private ["Ps9AnyObject", "layer"]
+- ["Ps9AnyObject", "viewDidLoad"]
+- ["Ps9AnyObject", ""]
+- !private ["CSo7CALayer", "borderColor"]
+- !private ["CSo7CALayer", "borderWidth"]
+- !private ["PSo13CAMediaTiming", "borderColor"]
+- !private ["PSo13CAMediaTiming", "borderWidth"]
+- !private ["V12CoreGraphics7CGFloat", "deinit"]
+- !private ["Ps11CVarArgType", "CGColor"]
+- !private ["Ps11CVarArgType", "UIColor"]
+- !private ["Ps11CVarArgType", "blackColor"]
+- !private ["Ps11CVarArgType", "borderColor"]
+- !private ["Ps11CVarArgType", "borderWidth"]
+- ["Ps11CVarArgType", "bridgeLbl"]
+- ["Ps11CVarArgType", "connectBridgeAction"]
+- ["Ps11CVarArgType", "connectBridgeBtn"]
+- ["Ps11CVarArgType", "didReceiveMemoryWarning"]
+- ["Ps11CVarArgType", "init"]
+- ["Ps11CVarArgType", "initialSetup"]
+- !private ["Ps11CVarArgType", "layer"]
+- ["Ps11CVarArgType", "viewDidLoad"]
+- ["Ps11CVarArgType", ""]
+- ["C14HomeKitDemoApp28ConnectcBridgeViewController", "AnyObject"]
+- ["C14HomeKitDemoApp28ConnectcBridgeViewController", "UIButton"]
+- !private ["C14HomeKitDemoApp28ConnectcBridgeViewController", "UIColor"]
+- ["C14HomeKitDemoApp28ConnectcBridgeViewController", "UILabel"]
+- ["C14HomeKitDemoApp28ConnectcBridgeViewController", "bridgeLbl"]
+- ["C14HomeKitDemoApp28ConnectcBridgeViewController", "connectBridgeAction"]
+- ["C14HomeKitDemoApp28ConnectcBridgeViewController", "connectBridgeBtn"]
+- ["C14HomeKitDemoApp28ConnectcBridgeViewController", "deinit"]
+- ["C14HomeKitDemoApp28ConnectcBridgeViewController", "didReceiveMemoryWarning"]
+- ["C14HomeKitDemoApp28ConnectcBridgeViewController", "init"]
+- ["C14HomeKitDemoApp28ConnectcBridgeViewController", "initialSetup"]
+- ["C14HomeKitDemoApp28ConnectcBridgeViewController", "viewDidLoad"]
+- !private ["Ps28CustomDebugStringConvertible", "CGColor"]
+- !private ["Ps28CustomDebugStringConvertible", "UIColor"]
+- !private ["Ps28CustomDebugStringConvertible", "blackColor"]
+- !private ["Ps28CustomDebugStringConvertible", "borderColor"]
+- !private ["Ps28CustomDebugStringConvertible", "borderWidth"]
+- ["Ps28CustomDebugStringConvertible", "bridgeLbl"]
+- ["Ps28CustomDebugStringConvertible", "connectBridgeAction"]
+- ["Ps28CustomDebugStringConvertible", "connectBridgeBtn"]
+- ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "initialSetup"]
+- !private ["Ps28CustomDebugStringConvertible", "layer"]
+- ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps23CustomStringConvertible", "CGColor"]
+- !private ["Ps23CustomStringConvertible", "UIColor"]
+- !private ["Ps23CustomStringConvertible", "blackColor"]
+- !private ["Ps23CustomStringConvertible", "borderColor"]
+- !private ["Ps23CustomStringConvertible", "borderWidth"]
+- ["Ps23CustomStringConvertible", "bridgeLbl"]
+- ["Ps23CustomStringConvertible", "connectBridgeAction"]
+- ["Ps23CustomStringConvertible", "connectBridgeBtn"]
+- ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "initialSetup"]
+- !private ["Ps23CustomStringConvertible", "layer"]
+- ["Ps23CustomStringConvertible", "viewDidLoad"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "CGColor"]
+- !private ["Ps9Equatable", "UIColor"]
+- !private ["Ps9Equatable", "blackColor"]
+- !private ["Ps9Equatable", "borderColor"]
+- !private ["Ps9Equatable", "borderWidth"]
+- ["Ps9Equatable", "bridgeLbl"]
+- ["Ps9Equatable", "connectBridgeAction"]
+- ["Ps9Equatable", "connectBridgeBtn"]
+- ["Ps9Equatable", "didReceiveMemoryWarning"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "initialSetup"]
+- !private ["Ps9Equatable", "layer"]
+- ["Ps9Equatable", "viewDidLoad"]
+- ["Ps9Equatable", ""]
+- !private ["Ps8Hashable", "CGColor"]
+- !private ["Ps8Hashable", "UIColor"]
+- !private ["Ps8Hashable", "blackColor"]
+- !private ["Ps8Hashable", "borderColor"]
+- !private ["Ps8Hashable", "borderWidth"]
+- ["Ps8Hashable", "bridgeLbl"]
+- ["Ps8Hashable", "connectBridgeAction"]
+- ["Ps8Hashable", "connectBridgeBtn"]
+- ["Ps8Hashable", "didReceiveMemoryWarning"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "initialSetup"]
+- !private ["Ps8Hashable", "layer"]
+- ["Ps8Hashable", "viewDidLoad"]
+- ["Ps8Hashable", ""]
+- !private ["PSo8NSCoding", "CGColor"]
+- !private ["PSo8NSCoding", "UIColor"]
+- !private ["PSo8NSCoding", "blackColor"]
+- !private ["PSo8NSCoding", "borderColor"]
+- !private ["PSo8NSCoding", "borderWidth"]
+- ["PSo8NSCoding", "bridgeLbl"]
+- ["PSo8NSCoding", "connectBridgeAction"]
+- ["PSo8NSCoding", "connectBridgeBtn"]
+- ["PSo8NSCoding", "didReceiveMemoryWarning"]
+- ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "initialSetup"]
+- !private ["PSo8NSCoding", "layer"]
+- ["PSo8NSCoding", "viewDidLoad"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "CGColor"]
+- !private ["PSo9NSCopying", "blackColor"]
+- !private ["PSo26NSExtensionRequestHandling", "UIColor"]
+- ["PSo26NSExtensionRequestHandling", "bridgeLbl"]
+- ["PSo26NSExtensionRequestHandling", "connectBridgeAction"]
+- ["PSo26NSExtensionRequestHandling", "connectBridgeBtn"]
+- ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
+- ["PSo26NSExtensionRequestHandling", "init"]
+- ["PSo26NSExtensionRequestHandling", "initialSetup"]
+- ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- ["CSo8NSObject", "AnyObject"]
+- !private ["CSo8NSObject", "CGColor"]
+- ["CSo8NSObject", "UIButton"]
+- !private ["CSo8NSObject", "UIColor"]
+- ["CSo8NSObject", "UILabel"]
+- !private ["CSo8NSObject", "blackColor"]
+- !private ["CSo8NSObject", "borderColor"]
+- !private ["CSo8NSObject", "borderWidth"]
+- ["CSo8NSObject", "bridgeLbl"]
+- ["CSo8NSObject", "connectBridgeAction"]
+- ["CSo8NSObject", "connectBridgeBtn"]
+- ["CSo8NSObject", "didReceiveMemoryWarning"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "initialSetup"]
+- !private ["CSo8NSObject", "layer"]
+- ["CSo8NSObject", "viewDidLoad"]
+- !private ["PSo16NSObjectProtocol", "CGColor"]
+- !private ["PSo16NSObjectProtocol", "UIColor"]
+- !private ["PSo16NSObjectProtocol", "blackColor"]
+- !private ["PSo16NSObjectProtocol", "borderColor"]
+- !private ["PSo16NSObjectProtocol", "borderWidth"]
+- ["PSo16NSObjectProtocol", "bridgeLbl"]
+- ["PSo16NSObjectProtocol", "connectBridgeAction"]
+- ["PSo16NSObjectProtocol", "connectBridgeBtn"]
+- ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "initialSetup"]
+- !private ["PSo16NSObjectProtocol", "layer"]
+- ["PSo16NSObjectProtocol", "viewDidLoad"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "CGColor"]
+- !private ["PSo14NSSecureCoding", "blackColor"]
+- !private ["PSo29UIAccessibilityIdentification", "layer"]
+- !private ["PSo12UIAppearance", "layer"]
+- !private ["PSo21UIAppearanceContainer", "UIColor"]
+- ["PSo21UIAppearanceContainer", "bridgeLbl"]
+- ["PSo21UIAppearanceContainer", "connectBridgeAction"]
+- ["PSo21UIAppearanceContainer", "connectBridgeBtn"]
+- ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
+- ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "initialSetup"]
+- !private ["PSo21UIAppearanceContainer", "layer"]
+- ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo8UIButton", "layer"]
+- !private ["CSo7UIColor", "CGColor"]
+- !private ["CSo7UIColor", "blackColor"]
+- !private ["PSo18UIContentContainer", "UIColor"]
+- ["PSo18UIContentContainer", "bridgeLbl"]
+- ["PSo18UIContentContainer", "connectBridgeAction"]
+- ["PSo18UIContentContainer", "connectBridgeBtn"]
+- ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
+- ["PSo18UIContentContainer", "init"]
+- ["PSo18UIContentContainer", "initialSetup"]
+- ["PSo18UIContentContainer", "viewDidLoad"]
+- ["PSo18UIContentContainer", ""]
+- !private ["CSo9UIControl", "layer"]
+- !private ["PSo17UICoordinateSpace", "layer"]
+- !private ["PSo13UIDynamicItem", "layer"]
+- !private ["PSo18UIFocusEnvironment", "UIColor"]
+- ["PSo18UIFocusEnvironment", "bridgeLbl"]
+- ["PSo18UIFocusEnvironment", "connectBridgeAction"]
+- ["PSo18UIFocusEnvironment", "connectBridgeBtn"]
+- ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "initialSetup"]
+- !private ["PSo18UIFocusEnvironment", "layer"]
+- ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", ""]
+- ["CSo11UIResponder", "AnyObject"]
+- ["CSo11UIResponder", "UIButton"]
+- !private ["CSo11UIResponder", "UIColor"]
+- ["CSo11UIResponder", "UILabel"]
+- ["CSo11UIResponder", "bridgeLbl"]
+- ["CSo11UIResponder", "connectBridgeAction"]
+- ["CSo11UIResponder", "connectBridgeBtn"]
+- ["CSo11UIResponder", "didReceiveMemoryWarning"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "initialSetup"]
+- !private ["CSo11UIResponder", "layer"]
+- ["CSo11UIResponder", "viewDidLoad"]
+- !private ["PSo16UIStateRestoring", "UIColor"]
+- ["PSo16UIStateRestoring", "bridgeLbl"]
+- ["PSo16UIStateRestoring", "connectBridgeAction"]
+- ["PSo16UIStateRestoring", "connectBridgeBtn"]
+- ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
+- ["PSo16UIStateRestoring", "init"]
+- ["PSo16UIStateRestoring", "initialSetup"]
+- ["PSo16UIStateRestoring", "viewDidLoad"]
+- ["PSo16UIStateRestoring", ""]
+- !private ["PSo18UITraitEnvironment", "UIColor"]
+- ["PSo18UITraitEnvironment", "bridgeLbl"]
+- ["PSo18UITraitEnvironment", "connectBridgeAction"]
+- ["PSo18UITraitEnvironment", "connectBridgeBtn"]
+- ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "initialSetup"]
+- !private ["PSo18UITraitEnvironment", "layer"]
+- ["PSo18UITraitEnvironment", "viewDidLoad"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "layer"]
+- ["CSo16UIViewController", "AnyObject"]
+- ["CSo16UIViewController", "UIButton"]
+- !private ["CSo16UIViewController", "UIColor"]
+- ["CSo16UIViewController", "UILabel"]
+- ["CSo16UIViewController", "bridgeLbl"]
+- ["CSo16UIViewController", "connectBridgeAction"]
+- ["CSo16UIViewController", "connectBridgeBtn"]
+- ["CSo16UIViewController", "didReceiveMemoryWarning"]
+- ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "initialSetup"]
+- ["CSo16UIViewController", "viewDidLoad"]
+- ["CSo16UIViewController", ""]
+- !private ["Ps24_ColorLiteralConvertible", "CGColor"]
+- !private ["Ps24_ColorLiteralConvertible", "blackColor"]
+- !private ["Ps12_Reflectable", "layer"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "CSo7CALayer"
+- !private "PSo13CAMediaTiming"
+- !private "V12CoreGraphics7CGFloat"
+- "Ps11CVarArgType"
+- "C14HomeKitDemoApp28ConnectcBridgeViewController"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- "PSo26NSExtensionRequestHandling"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "CSo8UIButton"
+- !private "CSo7UIColor"
+- "PSo18UIContentContainer"
+- !private "CSo9UIControl"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- "CSo11UIResponder"
+- "PSo16UIStateRestoring"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- "CSo16UIViewController"
+- !private "Ps24_ColorLiteralConvertible"
+- !private "Ps12_Reflectable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode 4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode 4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode 4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode 4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode 4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode 4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode 4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode 4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+interface-hash: "678ea367abf19e36261766490a36f91f"

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BD1F2B01D7D96970096280E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2AF1D7D96970096280E /* AppDelegate.swift */; };
-		2BD1F2B21D7D96970096280E /* ConnectcBridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B11D7D96970096280E /* ConnectcBridgeViewController.swift */; };
+		2BD1F2B21D7D96970096280E /* ConnectcBridgeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B11D7D96970096280E /* ConnectcBridgeVC.swift */; };
 		2BD1F2B51D7D96970096280E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B31D7D96970096280E /* Main.storyboard */; };
 		2BD1F2B71D7D96970096280E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B61D7D96970096280E /* Assets.xcassets */; };
 		2BD1F2BA1D7D96970096280E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B81D7D96970096280E /* LaunchScreen.storyboard */; };
@@ -16,6 +16,7 @@
 		2BD1F2D01D7D96970096280E /* HomeKitDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2CF1D7D96970096280E /* HomeKitDemoAppUITests.swift */; };
 		2BD1F2DE1D7D96C60096280E /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD1F2DD1D7D96C60096280E /* HomeKit.framework */; };
 		3BA5977E1D7D9D000002B61C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5977D1D7D9D000002B61C /* Constant.swift */; };
+		3BB952C21D827A1000B1DDEF /* AppliancesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB952C11D827A1000B1DDEF /* AppliancesVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,7 @@
 /* Begin PBXFileReference section */
 		2BD1F2AC1D7D96970096280E /* HomeKitDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeKitDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD1F2AF1D7D96970096280E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2BD1F2B11D7D96970096280E /* ConnectcBridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectcBridgeViewController.swift; sourceTree = "<group>"; };
+		2BD1F2B11D7D96970096280E /* ConnectcBridgeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectcBridgeVC.swift; sourceTree = "<group>"; };
 		2BD1F2B41D7D96970096280E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2BD1F2B61D7D96970096280E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BD1F2B91D7D96970096280E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		2BD1F2DD1D7D96C60096280E /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		2BD1F2DF1D7D96C60096280E /* HomeKitDemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeKitDemoApp.entitlements; sourceTree = "<group>"; };
 		3BA5977D1D7D9D000002B61C /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		3BB952C11D827A1000B1DDEF /* AppliancesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppliancesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +108,13 @@
 			children = (
 				2BD1F2DF1D7D96C60096280E /* HomeKitDemoApp.entitlements */,
 				2BD1F2AF1D7D96970096280E /* AppDelegate.swift */,
-				2BD1F2B11D7D96970096280E /* ConnectcBridgeViewController.swift */,
+				2BD1F2B11D7D96970096280E /* ConnectcBridgeVC.swift */,
 				2BD1F2B31D7D96970096280E /* Main.storyboard */,
 				2BD1F2B61D7D96970096280E /* Assets.xcassets */,
 				2BD1F2B81D7D96970096280E /* LaunchScreen.storyboard */,
 				2BD1F2BB1D7D96970096280E /* Info.plist */,
 				3BA5977D1D7D9D000002B61C /* Constant.swift */,
+				3BB952C11D827A1000B1DDEF /* AppliancesVC.swift */,
 			);
 			path = HomeKitDemoApp;
 			sourceTree = "<group>";
@@ -271,8 +274,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BD1F2B21D7D96970096280E /* ConnectcBridgeViewController.swift in Sources */,
+				2BD1F2B21D7D96970096280E /* ConnectcBridgeVC.swift in Sources */,
 				2BD1F2B01D7D96970096280E /* AppDelegate.swift in Sources */,
+				3BB952C21D827A1000B1DDEF /* AppliancesVC.swift in Sources */,
 				3BA5977E1D7D9D000002B61C /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
