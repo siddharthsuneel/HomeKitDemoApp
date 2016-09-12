@@ -1,8 +1,8 @@
 version: "Apple Swift version 2.2 (swiftlang-703.0.18.8 clang-703.0.31)"
-options: "c479f00bf23e1431a99bad2e627938e9"
-build_time: [526715162, 253747000]
+options: "5950c8d930923f0a260502e8f8e00f51"
+build_time: [526972476, 956098000]
 inputs:
   "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/ConnectcBridgeVC.swift": [526715160, 0]
   "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/AppDelegate.swift": [526392621, 0]
-  "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/AppliancesVC.swift": [526715095, 0]
+  "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/AppliancesVC.swift": [526972472, 0]
   "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/Constant.swift": [526393855, 0]

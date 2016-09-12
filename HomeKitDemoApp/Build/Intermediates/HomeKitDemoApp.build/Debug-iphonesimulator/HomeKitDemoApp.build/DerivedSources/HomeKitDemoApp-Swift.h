@@ -113,13 +113,21 @@ SWIFT_CLASS("_TtC14HomeKitDemoApp11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UICollectionView;
+@class NSIndexPath;
+@class UICollectionViewCell;
 @class NSBundle;
 @class NSCoder;
 
 SWIFT_CLASS("_TtC14HomeKitDemoApp12AppliancesVC")
-@interface AppliancesVC : UIViewController
+@interface AppliancesVC : UIViewController <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+@property (nonatomic, weak) IBOutlet UICollectionView * _Null_unspecified mainCollectionView;
+@property (nonatomic, readonly, copy) NSString * _Nonnull reuseIdentifier;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
+- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section;
+- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
