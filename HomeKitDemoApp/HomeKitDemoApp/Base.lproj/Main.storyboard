@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="t2o-JB-ayA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="t2o-JB-ayA">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4B-r2-Vvc">
-                                <rect key="frame" x="45" y="70" width="510" height="233"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4B-r2-Vvc">
+                                <rect key="frame" x="45" y="114" width="510" height="233"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="233" id="Pi8-Bx-9bc"/>
@@ -58,6 +58,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1103" y="399"/>
+        </scene>
+        <!--HomeView Controller-->
+        <scene sceneID="A5k-Xh-ZXT">
+            <objects>
+                <viewController title="HomeView Controller" id="XO4-5K-Drd" customClass="HomeViewController" customModule="HomeKitDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g0m-PY-P6x"/>
+                        <viewControllerLayoutGuide type="bottom" id="GVJ-ju-YEl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t5K-n4-z7B">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieo-Do-uYQ">
+                                <rect key="frame" x="250" y="70" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="70r-ay-3rM"/>
+                                    <constraint firstAttribute="width" constant="100" id="Ffd-Z5-lDR"/>
+                                </constraints>
+                                <state key="normal" title="Add Home"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="952-rU-Nao">
+                                <rect key="frame" x="250" y="450" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="WcU-bs-89N"/>
+                                    <constraint firstAttribute="width" constant="100" id="lKs-JA-1fD"/>
+                                </constraints>
+                                <state key="normal" title="Add Beacon"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GVJ-ju-YEl" firstAttribute="top" secondItem="952-rU-Nao" secondAttribute="bottom" constant="50" id="4Gh-MO-W7i"/>
+                            <constraint firstItem="952-rU-Nao" firstAttribute="centerX" secondItem="t5K-n4-z7B" secondAttribute="centerX" id="TcI-fP-0h9"/>
+                            <constraint firstItem="ieo-Do-uYQ" firstAttribute="top" secondItem="g0m-PY-P6x" secondAttribute="bottom" constant="50" id="Th8-Oj-TtR"/>
+                            <constraint firstItem="ieo-Do-uYQ" firstAttribute="centerX" secondItem="t5K-n4-z7B" secondAttribute="centerX" id="us5-0p-Wf0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addBeaconButton" destination="952-rU-Nao" id="fUT-XR-3tu"/>
+                        <outlet property="addHomeButton" destination="ieo-Do-uYQ" id="cGe-I2-6ow"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KEi-Gg-9OT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1103" y="1070"/>
         </scene>
         <!--AppliancesVC-->
         <scene sceneID="oDq-Y8-241">

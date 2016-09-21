@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2B22FCFF1D82CD1B00586B97 /* HueSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B22FCFE1D82CD1B00586B97 /* HueSDK_iOS.framework */; };
+		2B61799E1D9267BD003B8CF9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61799D1D9267BD003B8CF9 /* HomeViewController.swift */; };
+		2B6179A01D926CC3003B8CF9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B61799F1D926CC3003B8CF9 /* CoreLocation.framework */; };
 		2BD1F2B01D7D96970096280E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2AF1D7D96970096280E /* AppDelegate.swift */; };
 		2BD1F2B21D7D96970096280E /* ConnectcBridgeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B11D7D96970096280E /* ConnectcBridgeVC.swift */; };
 		2BD1F2B51D7D96970096280E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B31D7D96970096280E /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		2B22FCFE1D82CD1B00586B97 /* HueSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HueSDK_iOS.framework; path = HomeKitDemoApp/HueSDK_iOS.framework; sourceTree = "<group>"; };
+		2B61799D1D9267BD003B8CF9 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2B61799F1D926CC3003B8CF9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2BD1F2AC1D7D96970096280E /* HomeKitDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeKitDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD1F2AF1D7D96970096280E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BD1F2B11D7D96970096280E /* ConnectcBridgeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectcBridgeVC.swift; sourceTree = "<group>"; };
@@ -63,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B6179A01D926CC3003B8CF9 /* CoreLocation.framework in Frameworks */,
 				2B22FCFF1D82CD1B00586B97 /* HueSDK_iOS.framework in Frameworks */,
 				2BD1F2DE1D7D96C60096280E /* HomeKit.framework in Frameworks */,
 			);
@@ -90,6 +95,7 @@
 			children = (
 				3BB952C11D827A1000B1DDEF /* AppliancesVC.swift */,
 				2BD1F2B11D7D96970096280E /* ConnectcBridgeVC.swift */,
+				2B61799D1D9267BD003B8CF9 /* HomeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -113,6 +119,7 @@
 		2BD1F2A31D7D96970096280E = {
 			isa = PBXGroup;
 			children = (
+				2B61799F1D926CC3003B8CF9 /* CoreLocation.framework */,
 				2B22FCFE1D82CD1B00586B97 /* HueSDK_iOS.framework */,
 				2BD1F2DD1D7D96C60096280E /* HomeKit.framework */,
 				2BD1F2AE1D7D96970096280E /* HomeKitDemoApp */,
@@ -302,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B61799E1D9267BD003B8CF9 /* HomeViewController.swift in Sources */,
 				2BD1F2B21D7D96970096280E /* ConnectcBridgeVC.swift in Sources */,
 				2BD1F2B01D7D96970096280E /* AppDelegate.swift in Sources */,
 				3BB952C21D827A1000B1DDEF /* AppliancesVC.swift in Sources */,
@@ -452,8 +460,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HomeKitDemoApp/HomeKitDemoApp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HomeKitDemoApp",
@@ -463,7 +471,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Siddharth.HomeKitDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "b8f0ff96-c217-40ab-9761-2c45e7655113";
 			};
 			name = Debug;
 		};
@@ -472,8 +480,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HomeKitDemoApp/HomeKitDemoApp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HomeKitDemoApp",
@@ -483,7 +491,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Siddharth.HomeKitDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "b8f0ff96-c217-40ab-9761-2c45e7655113";
 			};
 			name = Release;
 		};
