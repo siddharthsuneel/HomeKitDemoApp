@@ -10,6 +10,7 @@
 		2B22FCFF1D82CD1B00586B97 /* HueSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B22FCFE1D82CD1B00586B97 /* HueSDK_iOS.framework */; };
 		2B61799E1D9267BD003B8CF9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61799D1D9267BD003B8CF9 /* HomeViewController.swift */; };
 		2B6179A01D926CC3003B8CF9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B61799F1D926CC3003B8CF9 /* CoreLocation.framework */; };
+		2BCD6D531D9541C90010999E /* HomeKitUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD6D521D9541C90010999E /* HomeKitUtility.swift */; };
 		2BD1F2B01D7D96970096280E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2AF1D7D96970096280E /* AppDelegate.swift */; };
 		2BD1F2B21D7D96970096280E /* ConnectcBridgeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B11D7D96970096280E /* ConnectcBridgeVC.swift */; };
 		2BD1F2B51D7D96970096280E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B31D7D96970096280E /* Main.storyboard */; };
@@ -43,6 +44,8 @@
 		2B22FCFE1D82CD1B00586B97 /* HueSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HueSDK_iOS.framework; path = HomeKitDemoApp/HueSDK_iOS.framework; sourceTree = "<group>"; };
 		2B61799D1D9267BD003B8CF9 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2B61799F1D926CC3003B8CF9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2BCD6D511D9541A60010999E /* HomeKitDemoApp-Bridgiing-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HomeKitDemoApp-Bridgiing-Header.h"; sourceTree = SOURCE_ROOT; };
+		2BCD6D521D9541C90010999E /* HomeKitUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeKitUtility.swift; sourceTree = "<group>"; };
 		2BD1F2AC1D7D96970096280E /* HomeKitDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeKitDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD1F2AF1D7D96970096280E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BD1F2B11D7D96970096280E /* ConnectcBridgeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectcBridgeVC.swift; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				3BA5977D1D7D9D000002B61C /* Constant.swift */,
+				2BCD6D521D9541C90010999E /* HomeKitUtility.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -142,6 +146,7 @@
 		2BD1F2AE1D7D96970096280E /* HomeKitDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				2BCD6D511D9541A60010999E /* HomeKitDemoApp-Bridgiing-Header.h */,
 				2BD1F2AF1D7D96970096280E /* AppDelegate.swift */,
 				2B22FD031D82D2C300586B97 /* Helper */,
 				2B22FD011D82D2B400586B97 /* Storyboards */,
@@ -311,6 +316,7 @@
 			files = (
 				2B61799E1D9267BD003B8CF9 /* HomeViewController.swift in Sources */,
 				2BD1F2B21D7D96970096280E /* ConnectcBridgeVC.swift in Sources */,
+				2BCD6D531D9541C90010999E /* HomeKitUtility.swift in Sources */,
 				2BD1F2B01D7D96970096280E /* AppDelegate.swift in Sources */,
 				3BB952C21D827A1000B1DDEF /* AppliancesVC.swift in Sources */,
 				3BA5977E1D7D9D000002B61C /* Constant.swift in Sources */,
