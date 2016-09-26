@@ -1,0 +1,6 @@
+framework module Pods_HomeKitDemoApp {
+  umbrella header "Pods-HomeKitDemoApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

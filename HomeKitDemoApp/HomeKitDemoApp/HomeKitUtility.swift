@@ -15,6 +15,8 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate {
     var homes:NSMutableArray! = []
     var accessories:NSMutableArray! = []
 
+    var phuHue : PHHueSDK?
+    
     
     class var sharedInstance: HomeKitUtility {
         struct Static {

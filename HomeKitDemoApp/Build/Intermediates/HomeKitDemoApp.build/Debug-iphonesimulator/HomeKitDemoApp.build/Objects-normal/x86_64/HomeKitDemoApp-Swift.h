@@ -93,6 +93,8 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 #endif
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
+@import ObjectiveC;
+@import HomeKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -143,6 +145,33 @@ SWIFT_CLASS("_TtC14HomeKitDemoApp16ConnectcBridgeVC")
 - (void)didReceiveMemoryWarning;
 - (void)initialSetup;
 - (IBAction)connectBridgeAction:(id _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class HMHomeManager;
+@class NSMutableArray;
+@class PHHueSDK;
+
+SWIFT_CLASS("_TtC14HomeKitDemoApp14HomeKitUtility")
+@interface HomeKitUtility : NSObject <HMHomeDelegate, HMHomeManagerDelegate>
+@property (nonatomic, strong) HMHomeManager * _Nonnull homeManager;
+@property (nonatomic, strong) NSMutableArray * _Null_unspecified homes;
+@property (nonatomic, strong) NSMutableArray * _Null_unspecified accessories;
+@property (nonatomic, strong) PHHueSDK * _Nullable phuHue;
++ (HomeKitUtility * _Nonnull)sharedInstance;
+- (void)initializeHomeKit;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC14HomeKitDemoApp18HomeViewController")
+@interface HomeViewController : UIViewController
+@property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified addHomeButton;
+@property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified addBeaconButton;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)setUp;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
