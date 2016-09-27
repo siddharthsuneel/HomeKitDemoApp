@@ -150,17 +150,52 @@ SWIFT_CLASS("_TtC14HomeKitDemoApp16ConnectcBridgeVC")
 @end
 
 @class HMHomeManager;
-@class NSMutableArray;
 @class PHHueSDK;
+@class PHBridgeSearching;
+@class PHBridgeResourcesCache;
+@class PHNotificationManager;
+@class HMHome;
+@class HMAccessory;
+@class PHLight;
+@class NSNotification;
 
 SWIFT_CLASS("_TtC14HomeKitDemoApp14HomeKitUtility")
-@interface HomeKitUtility : NSObject <HMHomeDelegate, HMHomeManagerDelegate>
+@interface HomeKitUtility : NSObject <HMHomeManagerDelegate, HMHomeDelegate, HMAccessoryDelegate, HMAccessoryBrowserDelegate>
 @property (nonatomic, strong) HMHomeManager * _Nonnull homeManager;
-@property (nonatomic, strong) NSMutableArray * _Null_unspecified homes;
-@property (nonatomic, strong) NSMutableArray * _Null_unspecified accessories;
-@property (nonatomic, strong) PHHueSDK * _Nullable phuHue;
+@property (nonatomic, strong) PHHueSDK * _Nullable phHueSDK;
+@property (nonatomic, strong) PHBridgeSearching * _Nullable bridgeSearch;
+@property (nonatomic, strong) PHBridgeResourcesCache * _Nullable phResourcesCache;
+@property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable bridgesFound;
+@property (nonatomic, strong) PHNotificationManager * _Nonnull phNotificationManager;
+@property (nonatomic, copy) NSArray<HMHome *> * _Nonnull homes;
+@property (nonatomic, copy) NSArray<HMAccessory *> * _Nonnull accessories;
+@property (nonatomic, copy) NSArray<PHLight *> * _Nonnull phAccessories;
+@property (nonatomic, copy) NSArray<PHLight *> * _Nonnull selectedPhAccessories;
 + (HomeKitUtility * _Nonnull)sharedInstance;
 - (void)initializeHomeKit;
+- (void)initializePHHueSDK;
+- (void)registerPHHueSDKNotifications;
+- (void)enableLocalHeartbeat;
+- (void)disableLocalHeartbeat;
+- (void)loadConnectedBridgeValues;
+- (void)searchForBridgeLocal;
+- (void)startBridgeAuthentication;
+
+/// Notification receiver which is called when the pushlinking was successful
+- (void)checkConnectionState;
+- (void)authenticationSuccess;
+
+/// Notification receiver which is called when the pushlinking failed because the time limit was reached
+- (void)authenticationFailed;
+
+/// Notification receiver which is called when the pushlinking failed because the local connection to the bridge was lost
+- (void)noLocalConnection;
+
+/// Notification receiver which is called when the pushlinking failed because we do not know the address of the local bridge
+- (void)noLocalBridge;
+
+/// This method is called when the pushlinking is still ongoing but no button was pressed yet. @param notification The notification which contains the pushlinking percentage which has passed.
+- (void)buttonNotPressed:(NSNotification * _Nonnull)notification;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -177,12 +212,16 @@ SWIFT_CLASS("_TtC14HomeKitDemoApp18HomeViewController")
 @end
 
 @class UITableView;
+@class UITableViewCell;
 
 SWIFT_CLASS("_TtC14HomeKitDemoApp6RoomVC")
-@interface RoomVC : UIViewController
+@interface RoomVC : UIViewController <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified mainTableView;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end

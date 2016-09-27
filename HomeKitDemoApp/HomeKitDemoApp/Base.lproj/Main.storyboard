@@ -205,15 +205,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fsi-Na-8ay">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="145" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fsi-Na-8ay">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="lOH-22-j93">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="145" id="lOH-22-j93">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="145"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lOH-22-j93" id="piF-iu-prf">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="144"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="201" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="living" translatesAutoresizingMaskIntoConstraints="NO" id="muG-5x-MaO">
@@ -236,11 +236,17 @@
                                                 <switch opaque="NO" tag="203" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xkr-Ah-dxx">
                                                     <rect key="frame" x="510" y="17" width="51" height="31"/>
                                                 </switch>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zhk-Ig-gp3">
+                                                    <rect key="frame" x="23" y="86" width="538" height="31"/>
+                                                </slider>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="zhk-Ig-gp3" firstAttribute="leading" secondItem="piF-iu-prf" secondAttribute="leading" constant="25" id="3md-4M-awh"/>
                                                 <constraint firstItem="Xkr-Ah-dxx" firstAttribute="leading" secondItem="Fdj-2V-gv0" secondAttribute="trailing" constant="67" id="4dd-d1-0Dc"/>
                                                 <constraint firstAttribute="topMargin" secondItem="Fdj-2V-gv0" secondAttribute="top" id="Ov0-DG-XKS"/>
                                                 <constraint firstItem="Xkr-Ah-dxx" firstAttribute="top" secondItem="piF-iu-prf" secondAttribute="topMargin" constant="9" id="TIF-5t-3ur"/>
+                                                <constraint firstAttribute="trailing" secondItem="zhk-Ig-gp3" secondAttribute="trailing" constant="41" id="YvO-ST-5x7"/>
+                                                <constraint firstAttribute="bottom" secondItem="zhk-Ig-gp3" secondAttribute="bottom" constant="28" id="aXZ-R6-ONp"/>
                                                 <constraint firstAttribute="topMargin" secondItem="muG-5x-MaO" secondAttribute="top" id="izr-b4-vx5"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Xkr-Ah-dxx" secondAttribute="trailing" constant="33" id="khV-Il-ohp"/>
                                                 <constraint firstItem="Fdj-2V-gv0" firstAttribute="leading" secondItem="muG-5x-MaO" secondAttribute="trailing" constant="22" id="rKe-05-WtR"/>
