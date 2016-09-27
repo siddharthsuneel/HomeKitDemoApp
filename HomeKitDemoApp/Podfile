@@ -12,9 +12,4 @@ target 'HomeKitDemoApp' do
     # Pods for testing
   end
 
-  target 'HomeKitDemoAppUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
