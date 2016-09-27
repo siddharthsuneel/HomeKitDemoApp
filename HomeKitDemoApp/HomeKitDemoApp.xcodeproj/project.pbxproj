@@ -19,6 +19,7 @@
 		2BD1F2D01D7D96970096280E /* HomeKitDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2CF1D7D96970096280E /* HomeKitDemoAppUITests.swift */; };
 		2BD1F2DE1D7D96C60096280E /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD1F2DD1D7D96C60096280E /* HomeKit.framework */; };
 		3B5092321D994917005E7850 /* HueSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5092311D994917005E7850 /* HueSDK_iOS.framework */; };
+		3B83B5471D9A4C69009106B0 /* RoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B83B5461D9A4C69009106B0 /* RoomVC.swift */; };
 		3BA5977E1D7D9D000002B61C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5977D1D7D9D000002B61C /* Constant.swift */; };
 		3BB952C21D827A1000B1DDEF /* AppliancesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB952C11D827A1000B1DDEF /* AppliancesVC.swift */; };
 		7D97AB16A5A38364B8798E52 /* Pods_HomeKitDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB92DD1A1477A68F89EBDD0 /* Pods_HomeKitDemoApp.framework */; };
@@ -64,6 +65,7 @@
 		2BD1F2DD1D7D96C60096280E /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		2BD1F2DF1D7D96C60096280E /* HomeKitDemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeKitDemoApp.entitlements; sourceTree = "<group>"; };
 		3B5092311D994917005E7850 /* HueSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HueSDK_iOS.framework; sourceTree = "<group>"; };
+		3B83B5461D9A4C69009106B0 /* RoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomVC.swift; sourceTree = "<group>"; };
 		3BA5977D1D7D9D000002B61C /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3BB952C11D827A1000B1DDEF /* AppliancesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppliancesVC.swift; sourceTree = "<group>"; };
 		4EBD133BE9E8C9360EBC5ECD /* Pods-HomeKitDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeKitDemoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HomeKitDemoApp/Pods-HomeKitDemoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				3BB952C11D827A1000B1DDEF /* AppliancesVC.swift */,
 				2BD1F2B11D7D96970096280E /* ConnectcBridgeVC.swift */,
 				2B61799D1D9267BD003B8CF9 /* HomeViewController.swift */,
+				3B83B5461D9A4C69009106B0 /* RoomVC.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B61799E1D9267BD003B8CF9 /* HomeViewController.swift in Sources */,
+				3B83B5471D9A4C69009106B0 /* RoomVC.swift in Sources */,
 				2BD1F2B21D7D96970096280E /* ConnectcBridgeVC.swift in Sources */,
 				2BCD6D531D9541C90010999E /* HomeKitUtility.swift in Sources */,
 				2BD1F2B01D7D96970096280E /* AppDelegate.swift in Sources */,
@@ -582,7 +586,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "b8f0ff96-c217-40ab-9761-2c45e7655113";
@@ -623,7 +627,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "b8f0ff96-c217-40ab-9761-2c45e7655113";
 				SDKROOT = iphoneos;

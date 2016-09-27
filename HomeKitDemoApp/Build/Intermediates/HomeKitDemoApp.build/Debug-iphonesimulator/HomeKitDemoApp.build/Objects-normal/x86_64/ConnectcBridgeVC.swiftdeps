@@ -6,22 +6,22 @@ provides-nominal:
 provides-member:
 - ["C14HomeKitDemoApp16ConnectcBridgeVC", ""]
 provides-dynamic-lookup:
-- "bridgeLbl"
-- "connectBridgeAction"
 - "didReceiveMemoryWarning"
+- "connectBridgeAction"
+- "bridgeLbl"
 - "viewDidLoad"
-- "connectBridgeBtn"
 - "initialSetup"
+- "connectBridgeBtn"
 depends-top-level:
-- !private "AppliancesVC"
-- "ConnectcBridgeVC"
 - !private "UIColor"
-- !private "BooleanLiteralType"
+- "ConnectcBridgeVC"
 - "UILabel"
-- !private "StringLiteralType"
+- !private "BooleanLiteralType"
 - "UIViewController"
 - "UIButton"
+- !private "AppliancesVC"
 - "AnyObject"
+- !private "StringLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "CGColor"]
 - !private ["Ps9AnyObject", "UIColor"]
