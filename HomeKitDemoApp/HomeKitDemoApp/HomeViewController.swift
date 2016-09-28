@@ -10,8 +10,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet var addHomeButton: UIButton!
+    @IBOutlet var homeButton: UIButton!
     @IBOutlet var addBeaconButton: UIButton!
+    var homeKitUtil:HomeKitUtility? = HomeKitUtility.sharedInstance
     
     // MARK: - View LifeCycle Methods
     
@@ -30,13 +31,21 @@ class HomeViewController: UIViewController {
     // MARK: - Private Methods
     
     func setUp(){
-        addHomeButton.layer.cornerRadius = addHomeButton.frame.size.width / 2
-        addHomeButton.layer.borderColor = UIColor.blueColor().CGColor
-        addHomeButton.layer.borderWidth = 2.0
         
-        addBeaconButton.layer.cornerRadius = addHomeButton.frame.size.width / 2
+        let rightButton = UIBarButtonItem(title: "Find Bridge", style: UIBarButtonItemStyle.Done , target: self, action:#selector(HomeViewController.rightBarbuttonAction))
+        self.navigationItem.rightBarButtonItem = rightButton
+        
+        homeButton.layer.cornerRadius = homeButton.frame.size.width / 2
+        homeButton.layer.borderColor = UIColor.blueColor().CGColor
+        homeButton.layer.borderWidth = 2.0
+        
+        addBeaconButton.layer.cornerRadius = addBeaconButton.frame.size.width / 2
         addBeaconButton.layer.borderColor = UIColor.blueColor().CGColor
         addBeaconButton.layer.borderWidth = 2.0
+    }
+    
+    func rightBarbuttonAction(){
+        homeKitUtil?.initializeHomeKit()
     }
     
 }

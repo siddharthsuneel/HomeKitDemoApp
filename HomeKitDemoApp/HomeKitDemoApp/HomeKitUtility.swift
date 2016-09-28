@@ -9,7 +9,13 @@
 import UIKit
 import HomeKit
 
+protocol PushLinkDelegate {
+    func buttonNotPressedTime(timeLeft:Float)
+}
+
 class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccessoryDelegate, HMAccessoryBrowserDelegate {
+    
+    var delegate: PushLinkDelegate?
     
     var homeManager = HMHomeManager()
     
@@ -244,7 +250,10 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
      Notification receiver which is called when the pushlinking failed because the time limit was reached
      */
     func authenticationFailed() {
-        let alertView:UIAlertView = UIAlertView(title: "", message:"Authentication failed", delegate: nil, cancelButtonTitle: "Ok");
+//        let alertView:UIAlertView = UIAlertView(title: "", message:"Authentication failed", delegate: nil, cancelButtonTitle: "Ok");
+//        alertView.show();
+        
+        let alertView:UIAlertView = UIAlertView(title: "Try Again", message:"Push link button not pressed !", delegate: nil, cancelButtonTitle: "Ok");
         alertView.show();
     }
     
@@ -252,14 +261,16 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
      Notification receiver which is called when the pushlinking failed because the local connection to the bridge was lost
      */
     func noLocalConnection() {
-        
+        let alertView:UIAlertView = UIAlertView(title: "Try Again", message:"Connection with Bridge Lost", delegate: nil, cancelButtonTitle: "Ok");
+        alertView.show();
     }
     
     /**
      Notification receiver which is called when the pushlinking failed because we do not know the address of the local bridge
      */
     func noLocalBridge() {
-        
+        let alertView:UIAlertView = UIAlertView(title: "Try Again", message:"Local Bridge Not Found", delegate: nil, cancelButtonTitle: "Ok");
+        alertView.show();
     }
     
     /**
@@ -267,7 +278,13 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
      @param notification The notification which contains the pushlinking percentage which has passed.
      */
     func buttonNotPressed(notification:NSNotification) {
+//        let alertView:UIAlertView = UIAlertView(title: "", message:"Push link button not pressed !", delegate: nil, cancelButtonTitle: "Ok");
+//        alertView.show();
         
+        let dict : NSDictionary = notification.userInfo!
+        let progressPercent:AnyObject? = dict.objectForKey("progressPercentage")
+        let progressBarValue:Float? = (progressPercent?.floatValue)!/100
+        delegate?.buttonNotPressedTime(progressBarValue!)
     }
     
 }
