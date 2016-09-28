@@ -209,7 +209,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="145" id="lOH-22-j93">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="145" id="lOH-22-j93" customClass="RoomCell" customModule="HomeKitDemoApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="145"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lOH-22-j93" id="piF-iu-prf">
@@ -257,6 +257,12 @@
                                             <constraint firstItem="Xkr-Ah-dxx" firstAttribute="top" secondItem="lOH-22-j93" secondAttribute="top" constant="17" id="s6f-fe-x6K"/>
                                             <constraint firstItem="muG-5x-MaO" firstAttribute="leading" secondItem="lOH-22-j93" secondAttribute="leading" constant="25" id="ukp-6N-uFe"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imgView" destination="muG-5x-MaO" id="mEz-la-sAL"/>
+                                            <outlet property="lblName" destination="Fdj-2V-gv0" id="R8x-mf-Qwo"/>
+                                            <outlet property="sliderControl" destination="zhk-Ig-gp3" id="IGQ-ez-kiP"/>
+                                            <outlet property="switchToggle" destination="Xkr-Ah-dxx" id="N80-U1-l0O"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
