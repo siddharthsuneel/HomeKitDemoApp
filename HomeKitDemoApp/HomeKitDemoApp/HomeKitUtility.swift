@@ -166,7 +166,8 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
                 let ipAddress:String = self.bridgesFound![macAddress]!
                 print("ipAddress of bridge : " + ipAddress)
                 
-                self.phHueSDK?.setBridgeToUseWithIpAddress(ipAddress, macAddress: macAddress)
+                self.phHueSDK?.setBridgeToUseWithId(macAddress, ipAddress: ipAddress)
+//                self.phHueSDK?.setBridgeToUseWithIpAddress(ipAddress, macAddress: macAddress)
                 self.startBridgeAuthentication()
                 
             }

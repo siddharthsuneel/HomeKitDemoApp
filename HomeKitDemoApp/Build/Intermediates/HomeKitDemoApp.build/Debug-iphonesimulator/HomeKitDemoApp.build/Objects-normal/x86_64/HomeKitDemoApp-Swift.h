@@ -136,11 +136,13 @@ SWIFT_CLASS("_TtC14HomeKitDemoApp12AppliancesVC")
 
 @class UILabel;
 @class UIButton;
+@class HomeKitUtility;
 
 SWIFT_CLASS("_TtC14HomeKitDemoApp16ConnectcBridgeVC")
 @interface ConnectcBridgeVC : UIViewController
 @property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified bridgeLbl;
 @property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified connectBridgeBtn;
+@property (nonatomic, strong) HomeKitUtility * _Nullable homeKitUtil;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (void)initialSetup;
@@ -153,6 +155,7 @@ SWIFT_CLASS("_TtC14HomeKitDemoApp16ConnectcBridgeVC")
 @class PHHueSDK;
 @class PHBridgeSearching;
 @class PHBridgeResourcesCache;
+@class HMAccessoryBrowser;
 @class PHNotificationManager;
 @class HMHome;
 @class HMAccessory;
@@ -166,6 +169,7 @@ SWIFT_CLASS("_TtC14HomeKitDemoApp14HomeKitUtility")
 @property (nonatomic, strong) PHBridgeSearching * _Nullable bridgeSearch;
 @property (nonatomic, strong) PHBridgeResourcesCache * _Nullable phResourcesCache;
 @property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable bridgesFound;
+@property (nonatomic, strong) HMAccessoryBrowser * _Nonnull accessoryBrowser;
 @property (nonatomic, strong) PHNotificationManager * _Nonnull phNotificationManager;
 @property (nonatomic, copy) NSArray<HMHome *> * _Nonnull homes;
 @property (nonatomic, copy) NSArray<HMAccessory *> * _Nonnull accessories;
@@ -211,8 +215,21 @@ SWIFT_CLASS("_TtC14HomeKitDemoApp18HomeViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIImageView;
+@class UISwitch;
+@class UISlider;
+
+SWIFT_CLASS("_TtC14HomeKitDemoApp8RoomCell")
+@interface RoomCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified imgView;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lblName;
+@property (nonatomic, weak) IBOutlet UISwitch * _Null_unspecified switchToggle;
+@property (nonatomic, weak) IBOutlet UISlider * _Null_unspecified sliderControl;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UITableView;
-@class UITableViewCell;
 
 SWIFT_CLASS("_TtC14HomeKitDemoApp6RoomVC")
 @interface RoomVC : UIViewController <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>

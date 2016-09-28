@@ -1,12 +1,12 @@
 version: "Apple Swift version 2.2 (swiftlang-703.0.18.8 clang-703.0.31)"
 options: "a0d4a03cf1f9079b291989aa4c8d58df"
-build_time: [528354038, 574828000]
+build_time: [528369652, 39303000]
 inputs:
   "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/HomeViewController.swift": [527930321, 0]
   "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/RoomVC.swift": [528291071, 0]
-  "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/ConnectcBridgeVC.swift": !private [528354036, 0]
-  "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/HomeKitUtility.swift": [528282450, 0]
+  "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/ConnectcBridgeVC.swift": [528369264, 0]
+  "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/HomeKitUtility.swift": [528369651, 0]
   "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/AppDelegate.swift": [528208052, 0]
   "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/AppliancesVC.swift": [527930321, 0]
-  "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/RoomCell.swift": !dirty [9223372036854775807, 0]
+  "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/RoomCell.swift": [528361519, 0]
   "/Users/jyoti/workspace/HomeKitDemoApp/HomeKitDemoApp/HomeKitDemoApp/Constant.swift": [527930321, 0]

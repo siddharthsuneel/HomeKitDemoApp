@@ -6,27 +6,27 @@ provides-nominal:
 provides-member:
 - ["C14HomeKitDemoApp12AppliancesVC", ""]
 provides-dynamic-lookup:
-- "didReceiveMemoryWarning"
-- "viewDidLoad"
 - "collectionView"
 - "collectionView"
 - "collectionView"
 - "reuseIdentifier"
 - "mainCollectionView"
+- "viewDidLoad"
+- "didReceiveMemoryWarning"
 depends-top-level:
-- "UIViewController"
 - !private "UIColor"
-- !private "UnicodeScalarType"
-- "StringLiteralType"
-- !private "print"
-- "UICollectionView"
-- "NSIndexPath"
-- "Int"
-- "AppliancesVC"
-- "UICollectionViewDataSource"
 - !private "UIEdgeInsetsMake"
 - "UICollectionViewCell"
+- "UIViewController"
+- "AppliancesVC"
+- !private "print"
+- !private "UnicodeScalarType"
+- "StringLiteralType"
 - "UICollectionViewDelegate"
+- "Int"
+- "UICollectionViewDataSource"
+- "UICollectionView"
+- "NSIndexPath"
 depends-member:
 - !private ["Ps9AnyObject", "UIColor"]
 - !private ["Ps9AnyObject", "UIEdgeInsetsMake"]

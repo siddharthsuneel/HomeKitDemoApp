@@ -17,10 +17,10 @@
 		2BD1F2BA1D7D96970096280E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B81D7D96970096280E /* LaunchScreen.storyboard */; };
 		2BD1F2C51D7D96970096280E /* HomeKitDemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2C41D7D96970096280E /* HomeKitDemoAppTests.swift */; };
 		2BD1F2DE1D7D96C60096280E /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD1F2DD1D7D96C60096280E /* HomeKit.framework */; };
-		3B5092321D994917005E7850 /* HueSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5092311D994917005E7850 /* HueSDK_iOS.framework */; };
 		3B83B5471D9A4C69009106B0 /* RoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B83B5461D9A4C69009106B0 /* RoomVC.swift */; };
 		3BA5977E1D7D9D000002B61C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5977D1D7D9D000002B61C /* Constant.swift */; };
 		3BAC49801D9B85F3002A558C /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC497F1D9B85F3002A558C /* RoomCell.swift */; };
+		3BAC49841D9BC2B3002A558C /* HueSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BAC49831D9BC2B3002A558C /* HueSDK_iOS.framework */; };
 		3BB952C21D827A1000B1DDEF /* AppliancesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB952C11D827A1000B1DDEF /* AppliancesVC.swift */; };
 		7D97AB16A5A38364B8798E52 /* Pods_HomeKitDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB92DD1A1477A68F89EBDD0 /* Pods_HomeKitDemoApp.framework */; };
 		B58FFF5B5F8CAA6B514A13F1 /* Pods_HomeKitDemoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54750A41BC1467D9629D802D /* Pods_HomeKitDemoAppTests.framework */; };
@@ -55,10 +55,10 @@
 		2BD1F2D11D7D96970096280E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BD1F2DD1D7D96C60096280E /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		2BD1F2DF1D7D96C60096280E /* HomeKitDemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeKitDemoApp.entitlements; sourceTree = "<group>"; };
-		3B5092311D994917005E7850 /* HueSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HueSDK_iOS.framework; sourceTree = "<group>"; };
 		3B83B5461D9A4C69009106B0 /* RoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomVC.swift; sourceTree = "<group>"; };
 		3BA5977D1D7D9D000002B61C /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3BAC497F1D9B85F3002A558C /* RoomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
+		3BAC49831D9BC2B3002A558C /* HueSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HueSDK_iOS.framework; path = HomeKitDemoApp/HueSDK_iOS.framework; sourceTree = "<group>"; };
 		3BB952C11D827A1000B1DDEF /* AppliancesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppliancesVC.swift; sourceTree = "<group>"; };
 		4EBD133BE9E8C9360EBC5ECD /* Pods-HomeKitDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeKitDemoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HomeKitDemoApp/Pods-HomeKitDemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		5307FEEE0A4907D78AD394E9 /* Pods-HomeKitDemoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeKitDemoAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeKitDemoAppTests/Pods-HomeKitDemoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,8 +77,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B6179A01D926CC3003B8CF9 /* CoreLocation.framework in Frameworks */,
-				3B5092321D994917005E7850 /* HueSDK_iOS.framework in Frameworks */,
 				2BD1F2DE1D7D96C60096280E /* HomeKit.framework in Frameworks */,
+				3BAC49841D9BC2B3002A558C /* HueSDK_iOS.framework in Frameworks */,
 				7D97AB16A5A38364B8798E52 /* Pods_HomeKitDemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,7 +125,7 @@
 		2BD1F2A31D7D96970096280E = {
 			isa = PBXGroup;
 			children = (
-				3B5092311D994917005E7850 /* HueSDK_iOS.framework */,
+				3BAC49831D9BC2B3002A558C /* HueSDK_iOS.framework */,
 				2B61799F1D926CC3003B8CF9 /* CoreLocation.framework */,
 				2BD1F2DD1D7D96C60096280E /* HomeKit.framework */,
 				2BD1F2AE1D7D96970096280E /* HomeKitDemoApp */,
@@ -484,6 +484,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
@@ -508,7 +509,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "b8f0ff96-c217-40ab-9761-2c45e7655113";
+				PROVISIONING_PROFILE = "0028bf56-586e-4e67-81dc-f2ceb3362d90";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -532,6 +533,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
@@ -549,7 +551,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "b8f0ff96-c217-40ab-9761-2c45e7655113";
+				PROVISIONING_PROFILE = "0028bf56-586e-4e67-81dc-f2ceb3362d90";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -561,9 +563,9 @@
 			baseConfigurationReference = 6C542EE64465A7C963804920 /* Pods-HomeKitDemoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = HomeKitDemoApp/HomeKitDemoApp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -581,7 +583,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Siddharth.HomeKitDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0028bf56-586e-4e67-81dc-f2ceb3362d90";
 				SWIFT_OBJC_BRIDGING_HEADER = "HomeKitDemoApp-Bridgiing-Header.h";
 			};
 			name = Debug;
@@ -591,9 +593,9 @@
 			baseConfigurationReference = 4EBD133BE9E8C9360EBC5ECD /* Pods-HomeKitDemoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = HomeKitDemoApp/HomeKitDemoApp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -611,7 +613,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Siddharth.HomeKitDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0028bf56-586e-4e67-81dc-f2ceb3362d90";
 				SWIFT_OBJC_BRIDGING_HEADER = "HomeKitDemoApp-Bridgiing-Header.h";
 			};
 			name = Release;
