@@ -196,7 +196,7 @@
         <!--RoomVC-->
         <scene sceneID="bbh-mv-3XN">
             <objects>
-                <viewController id="ehH-3k-rWl" customClass="RoomVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoomVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ehH-3k-rWl" customClass="RoomVC" customModule="HomeKitDemoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fbu-X8-Dxi"/>
                         <viewControllerLayoutGuide type="bottom" id="znB-58-Hz8"/>
@@ -236,7 +236,7 @@
                                                 <switch opaque="NO" tag="203" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xkr-Ah-dxx">
                                                     <rect key="frame" x="510" y="17" width="51" height="31"/>
                                                 </switch>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zhk-Ig-gp3">
+                                                <slider opaque="NO" tag="204" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zhk-Ig-gp3">
                                                     <rect key="frame" x="23" y="86" width="538" height="31"/>
                                                 </slider>
                                             </subviews>

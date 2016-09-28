@@ -44,6 +44,9 @@ class ConnectcBridgeVC: UIViewController {
         let obj = self.storyboard?.instantiateViewControllerWithIdentifier("AppliancesVC") as! AppliancesVC
         self.navigationController?.pushViewController(obj, animated: true)
         
+//        let obj = self.storyboard?.instantiateViewControllerWithIdentifier("RoomVC") as! RoomVC
+//        self.navigationController?.pushViewController(obj, animated: true)
+        
     }
 
 }

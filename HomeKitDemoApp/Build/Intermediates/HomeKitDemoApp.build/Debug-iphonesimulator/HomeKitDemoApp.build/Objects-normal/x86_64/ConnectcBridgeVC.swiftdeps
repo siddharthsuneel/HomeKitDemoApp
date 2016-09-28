@@ -6,22 +6,22 @@ provides-nominal:
 provides-member:
 - ["C14HomeKitDemoApp16ConnectcBridgeVC", ""]
 provides-dynamic-lookup:
-- "didReceiveMemoryWarning"
-- "connectBridgeAction"
-- "bridgeLbl"
-- "viewDidLoad"
-- "initialSetup"
 - "connectBridgeBtn"
+- "viewDidLoad"
+- "didReceiveMemoryWarning"
+- "initialSetup"
+- "bridgeLbl"
+- "connectBridgeAction"
 depends-top-level:
-- !private "UIColor"
-- "ConnectcBridgeVC"
-- "UILabel"
-- !private "BooleanLiteralType"
-- "UIViewController"
 - "UIButton"
-- !private "AppliancesVC"
-- "AnyObject"
+- "UILabel"
+- !private "RoomVC"
 - !private "StringLiteralType"
+- "UIViewController"
+- "AnyObject"
+- !private "UIColor"
+- !private "BooleanLiteralType"
+- "ConnectcBridgeVC"
 depends-member:
 - !private ["Ps9AnyObject", "CGColor"]
 - !private ["Ps9AnyObject", "UIColor"]
@@ -65,7 +65,7 @@ depends-member:
 - ["Ps11CVarArgType", "viewDidLoad"]
 - ["Ps11CVarArgType", ""]
 - ["C14HomeKitDemoApp16ConnectcBridgeVC", "AnyObject"]
-- !private ["C14HomeKitDemoApp16ConnectcBridgeVC", "AppliancesVC"]
+- !private ["C14HomeKitDemoApp16ConnectcBridgeVC", "RoomVC"]
 - ["C14HomeKitDemoApp16ConnectcBridgeVC", "UIButton"]
 - !private ["C14HomeKitDemoApp16ConnectcBridgeVC", "UIColor"]
 - ["C14HomeKitDemoApp16ConnectcBridgeVC", "UILabel"]
@@ -183,8 +183,8 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
 - ["PSo26NSExtensionRequestHandling", ""]
 - ["CSo8NSObject", "AnyObject"]
-- !private ["CSo8NSObject", "AppliancesVC"]
 - !private ["CSo8NSObject", "CGColor"]
+- !private ["CSo8NSObject", "RoomVC"]
 - ["CSo8NSObject", "UIButton"]
 - !private ["CSo8NSObject", "UIColor"]
 - ["CSo8NSObject", "UILabel"]
@@ -272,7 +272,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", ""]
 - !private ["CSo22UINavigationController", "pushViewController"]
 - ["CSo11UIResponder", "AnyObject"]
-- !private ["CSo11UIResponder", "AppliancesVC"]
+- !private ["CSo11UIResponder", "RoomVC"]
 - ["CSo11UIResponder", "UIButton"]
 - !private ["CSo11UIResponder", "UIColor"]
 - ["CSo11UIResponder", "UILabel"]
@@ -315,7 +315,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", ""]
 - !private ["CSo6UIView", "layer"]
 - ["CSo16UIViewController", "AnyObject"]
-- !private ["CSo16UIViewController", "AppliancesVC"]
+- !private ["CSo16UIViewController", "RoomVC"]
 - ["CSo16UIViewController", "UIButton"]
 - !private ["CSo16UIViewController", "UIColor"]
 - ["CSo16UIViewController", "UILabel"]
