@@ -12,11 +12,12 @@ import HomeKit
 class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccessoryDelegate, HMAccessoryBrowserDelegate {
     
     var homeManager = HMHomeManager()
-
+    
     var phHueSDK : PHHueSDK?
     var bridgeSearch:PHBridgeSearching?
     var phResourcesCache:PHBridgeResourcesCache?
     var bridgesFound : Dictionary<String,String>?
+    var accessoryBrowser:HMAccessoryBrowser = HMAccessoryBrowser()
     var phNotificationManager : PHNotificationManager = PHNotificationManager.defaultManager()
     
     var homes:Array<HMHome> = [];
@@ -36,7 +37,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
         
         return Static.instance!
     }
-
+    
     //MARK: - Initialisation Methods
     func initializeHomeKit(){
         let timer = NSTimer(timeInterval: 10, target: self, selector: #selector(HomeKitUtility.loadConnectedBridgeValues), userInfo: nil, repeats: true);
@@ -44,19 +45,33 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
         
         print("initializing HomeKit");
         self.homeManager.delegate = self;
+        self.homes.removeAll(keepCapacity: false);
+        for home in homeManager.homes{
+            self.homes.append(home);
+            
+        }
+        
+        self.accessoryBrowser.delegate = self;
+        
+        self.accessoryBrowser.startSearchingForNewAccessories();
+        
+        self.initializePHHueSDK();
+        
+        
     }
-
+    
     func initializePHHueSDK(){
         self.phHueSDK = PHHueSDK();
         self.phHueSDK!.startUpSDK();
         self.phHueSDK!.enableLogging(true);
+        self.registerPHHueSDKNotifications();
         self.enableLocalHeartbeat();
     }
     
     func registerPHHueSDKNotifications(){
         self.phNotificationManager.registerObject(self, withSelector: #selector(HomeKitUtility.checkConnectionState), forNotification: LOCAL_CONNECTION_NOTIFICATION);
         self.phNotificationManager.registerObject(self, withSelector: #selector(HomeKitUtility.noLocalConnection), forNotification: NO_LOCAL_CONNECTION_NOTIFICATION);
-//        self.phNotificationManager.registerObject(self, withSelector: #selector("notAuthenticated"), forNotification: NO_LOCAL_AUTHENTICATION_NOTIFICATION);
+        //        self.phNotificationManager.registerObject(self, withSelector: Selector("notAuthenticated"), forNotification: NO_LOCAL_AUTHENTICATION_NOTIFICATION);
         self.phNotificationManager.registerObject(self, withSelector: #selector(HomeKitUtility.authenticationSuccess), forNotification: PUSHLINK_LOCAL_AUTHENTICATION_SUCCESS_NOTIFICATION);
         self.phNotificationManager.registerObject(self, withSelector: #selector(HomeKitUtility.authenticationFailed), forNotification: PUSHLINK_LOCAL_AUTHENTICATION_FAILED_NOTIFICATION);
         self.phNotificationManager.registerObject(self, withSelector: #selector(HomeKitUtility.noLocalBridge), forNotification: PUSHLINK_NO_LOCAL_BRIDGE_KNOWN_NOTIFICATION);
@@ -143,15 +158,16 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
         
         self.bridgeSearch = PHBridgeSearching(upnpSearch: true, andPortalSearch: true, andIpAdressSearch: true)
         self.bridgeSearch!.startSearchWithCompletionHandler({ bridgesFound -> Void in
-        
+            
             if bridgesFound.count > 0{
                 
                 self.bridgesFound = (bridgesFound as? Dictionary<String,String>)
                 let macAddress:String = self.bridgesFound!.keys.first!
                 let ipAddress:String = self.bridgesFound![macAddress]!
+                print("ipAddress of bridge : " + ipAddress)
                 
                 self.phHueSDK?.setBridgeToUseWithIpAddress(ipAddress, macAddress: macAddress)
-                self.phHueSDK?.startPushlinkAuthentication()
+                self.startBridgeAuthentication()
                 
             }
             else{
@@ -193,7 +209,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
             
         }
     }
-
+    
     func authenticationSuccess() {
         /***************************************************
          The notification PUSHLINK_LOCAL_AUTHENTICATION_SUCCESS_NOTIFICATION
@@ -242,7 +258,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
      Notification receiver which is called when the pushlinking failed because we do not know the address of the local bridge
      */
     func noLocalBridge() {
-
+        
     }
     
     /**
@@ -252,5 +268,5 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
     func buttonNotPressed(notification:NSNotification) {
         
     }
-
+    
 }

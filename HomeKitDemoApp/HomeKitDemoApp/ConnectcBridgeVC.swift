@@ -13,6 +13,7 @@ class ConnectcBridgeVC: UIViewController {
     @IBOutlet var bridgeLbl: UILabel!
     
     @IBOutlet var connectBridgeBtn: UIButton!
+    var homeKitUtil:HomeKitUtility? = HomeKitUtility.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,8 @@ class ConnectcBridgeVC: UIViewController {
     // MARK: Private Methods
     
     func initialSetup(){
+        homeKitUtil?.initializeHomeKit()
+        
         connectBridgeBtn.layer.borderWidth = 1.0
         connectBridgeBtn.layer.borderColor = UIColor.blackColor().CGColor
         
@@ -41,8 +44,8 @@ class ConnectcBridgeVC: UIViewController {
 //        navigationController?.pushViewController(vc, animated: true)
 
         
-        let obj = self.storyboard?.instantiateViewControllerWithIdentifier("AppliancesVC") as! AppliancesVC
-        self.navigationController?.pushViewController(obj, animated: true)
+        //let obj = self.storyboard?.instantiateViewControllerWithIdentifier("AppliancesVC") as! AppliancesVC
+       // self.navigationController?.pushViewController(obj, animated: true)
         
 //        let obj = self.storyboard?.instantiateViewControllerWithIdentifier("RoomVC") as! RoomVC
 //        self.navigationController?.pushViewController(obj, animated: true)
