@@ -6,23 +6,23 @@ provides-nominal:
 provides-member:
 - ["C14HomeKitDemoApp16ConnectcBridgeVC", ""]
 provides-dynamic-lookup:
-- "homeKitUtil"
-- "didReceiveMemoryWarning"
-- "connectBridgeAction"
-- "connectBridgeBtn"
-- "bridgeLbl"
 - "viewDidLoad"
+- "bridgeLbl"
+- "connectBridgeBtn"
+- "connectBridgeAction"
+- "homeKitUtil"
 - "initialSetup"
+- "didReceiveMemoryWarning"
 depends-top-level:
 - "UIButton"
-- "AnyObject"
-- "ConnectcBridgeVC"
 - !private "BooleanLiteralType"
-- !private "RoomVC"
-- "UIViewController"
-- !private "UIColor"
-- "HomeKitUtility"
 - "UILabel"
+- "ConnectcBridgeVC"
+- "AnyObject"
+- !private "UIColor"
+- !private "AppliancesVC"
+- "UIViewController"
+- "HomeKitUtility"
 - !private "StringLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "CGColor"]
@@ -38,7 +38,6 @@ depends-member:
 - ["Ps9AnyObject", "homeKitUtil"]
 - ["Ps9AnyObject", "init"]
 - ["Ps9AnyObject", "initialSetup"]
-- !private ["Ps9AnyObject", "initializeHomeKit"]
 - !private ["Ps9AnyObject", "instantiateViewControllerWithIdentifier"]
 - !private ["Ps9AnyObject", "layer"]
 - !private ["Ps9AnyObject", "navigationController"]
@@ -65,7 +64,6 @@ depends-member:
 - ["Ps11CVarArgType", "homeKitUtil"]
 - ["Ps11CVarArgType", "init"]
 - ["Ps11CVarArgType", "initialSetup"]
-- !private ["Ps11CVarArgType", "initializeHomeKit"]
 - !private ["Ps11CVarArgType", "instantiateViewControllerWithIdentifier"]
 - !private ["Ps11CVarArgType", "layer"]
 - !private ["Ps11CVarArgType", "navigationController"]
@@ -75,8 +73,8 @@ depends-member:
 - ["Ps11CVarArgType", "viewDidLoad"]
 - ["Ps11CVarArgType", ""]
 - ["C14HomeKitDemoApp16ConnectcBridgeVC", "AnyObject"]
+- !private ["C14HomeKitDemoApp16ConnectcBridgeVC", "AppliancesVC"]
 - ["C14HomeKitDemoApp16ConnectcBridgeVC", "HomeKitUtility"]
-- !private ["C14HomeKitDemoApp16ConnectcBridgeVC", "RoomVC"]
 - ["C14HomeKitDemoApp16ConnectcBridgeVC", "UIButton"]
 - !private ["C14HomeKitDemoApp16ConnectcBridgeVC", "UIColor"]
 - ["C14HomeKitDemoApp16ConnectcBridgeVC", "UILabel"]
@@ -104,7 +102,6 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "homeKitUtil"]
 - ["Ps28CustomDebugStringConvertible", "init"]
 - ["Ps28CustomDebugStringConvertible", "initialSetup"]
-- !private ["Ps28CustomDebugStringConvertible", "initializeHomeKit"]
 - !private ["Ps28CustomDebugStringConvertible", "instantiateViewControllerWithIdentifier"]
 - !private ["Ps28CustomDebugStringConvertible", "layer"]
 - !private ["Ps28CustomDebugStringConvertible", "navigationController"]
@@ -126,7 +123,6 @@ depends-member:
 - ["Ps23CustomStringConvertible", "homeKitUtil"]
 - ["Ps23CustomStringConvertible", "init"]
 - ["Ps23CustomStringConvertible", "initialSetup"]
-- !private ["Ps23CustomStringConvertible", "initializeHomeKit"]
 - !private ["Ps23CustomStringConvertible", "instantiateViewControllerWithIdentifier"]
 - !private ["Ps23CustomStringConvertible", "layer"]
 - !private ["Ps23CustomStringConvertible", "navigationController"]
@@ -148,7 +144,6 @@ depends-member:
 - ["Ps9Equatable", "homeKitUtil"]
 - ["Ps9Equatable", "init"]
 - ["Ps9Equatable", "initialSetup"]
-- !private ["Ps9Equatable", "initializeHomeKit"]
 - !private ["Ps9Equatable", "instantiateViewControllerWithIdentifier"]
 - !private ["Ps9Equatable", "layer"]
 - !private ["Ps9Equatable", "navigationController"]
@@ -157,13 +152,9 @@ depends-member:
 - !private ["Ps9Equatable", "storyboard"]
 - ["Ps9Equatable", "viewDidLoad"]
 - ["Ps9Equatable", ""]
-- !private ["PSo26HMAccessoryBrowserDelegate", "initializeHomeKit"]
 - ["PSo26HMAccessoryBrowserDelegate", "sharedInstance"]
-- !private ["PSo19HMAccessoryDelegate", "initializeHomeKit"]
 - ["PSo19HMAccessoryDelegate", "sharedInstance"]
-- !private ["PSo14HMHomeDelegate", "initializeHomeKit"]
 - ["PSo14HMHomeDelegate", "sharedInstance"]
-- !private ["PSo21HMHomeManagerDelegate", "initializeHomeKit"]
 - ["PSo21HMHomeManagerDelegate", "sharedInstance"]
 - !private ["Ps8Hashable", "CGColor"]
 - ["Ps8Hashable", "HomeKitUtility"]
@@ -178,7 +169,6 @@ depends-member:
 - ["Ps8Hashable", "homeKitUtil"]
 - ["Ps8Hashable", "init"]
 - ["Ps8Hashable", "initialSetup"]
-- !private ["Ps8Hashable", "initializeHomeKit"]
 - !private ["Ps8Hashable", "instantiateViewControllerWithIdentifier"]
 - !private ["Ps8Hashable", "layer"]
 - !private ["Ps8Hashable", "navigationController"]
@@ -187,7 +177,6 @@ depends-member:
 - !private ["Ps8Hashable", "storyboard"]
 - ["Ps8Hashable", "viewDidLoad"]
 - ["Ps8Hashable", ""]
-- !private ["C14HomeKitDemoApp14HomeKitUtility", "initializeHomeKit"]
 - ["C14HomeKitDemoApp14HomeKitUtility", "sharedInstance"]
 - !private ["PSo8NSCoding", "CGColor"]
 - ["PSo8NSCoding", "HomeKitUtility"]
@@ -225,9 +214,9 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
 - ["PSo26NSExtensionRequestHandling", ""]
 - ["CSo8NSObject", "AnyObject"]
+- !private ["CSo8NSObject", "AppliancesVC"]
 - !private ["CSo8NSObject", "CGColor"]
 - ["CSo8NSObject", "HomeKitUtility"]
-- !private ["CSo8NSObject", "RoomVC"]
 - ["CSo8NSObject", "UIButton"]
 - !private ["CSo8NSObject", "UIColor"]
 - ["CSo8NSObject", "UILabel"]
@@ -241,7 +230,6 @@ depends-member:
 - ["CSo8NSObject", "homeKitUtil"]
 - ["CSo8NSObject", "init"]
 - ["CSo8NSObject", "initialSetup"]
-- !private ["CSo8NSObject", "initializeHomeKit"]
 - !private ["CSo8NSObject", "instantiateViewControllerWithIdentifier"]
 - !private ["CSo8NSObject", "layer"]
 - !private ["CSo8NSObject", "navigationController"]
@@ -262,7 +250,6 @@ depends-member:
 - ["PSo16NSObjectProtocol", "homeKitUtil"]
 - ["PSo16NSObjectProtocol", "init"]
 - ["PSo16NSObjectProtocol", "initialSetup"]
-- !private ["PSo16NSObjectProtocol", "initializeHomeKit"]
 - !private ["PSo16NSObjectProtocol", "instantiateViewControllerWithIdentifier"]
 - !private ["PSo16NSObjectProtocol", "layer"]
 - !private ["PSo16NSObjectProtocol", "navigationController"]
@@ -328,8 +315,8 @@ depends-member:
 - ["PSo18UIFocusEnvironment", ""]
 - !private ["CSo22UINavigationController", "pushViewController"]
 - ["CSo11UIResponder", "AnyObject"]
+- !private ["CSo11UIResponder", "AppliancesVC"]
 - ["CSo11UIResponder", "HomeKitUtility"]
-- !private ["CSo11UIResponder", "RoomVC"]
 - ["CSo11UIResponder", "UIButton"]
 - !private ["CSo11UIResponder", "UIColor"]
 - ["CSo11UIResponder", "UILabel"]
@@ -377,8 +364,8 @@ depends-member:
 - ["PSo18UITraitEnvironment", ""]
 - !private ["CSo6UIView", "layer"]
 - ["CSo16UIViewController", "AnyObject"]
+- !private ["CSo16UIViewController", "AppliancesVC"]
 - ["CSo16UIViewController", "HomeKitUtility"]
-- !private ["CSo16UIViewController", "RoomVC"]
 - ["CSo16UIViewController", "UIButton"]
 - !private ["CSo16UIViewController", "UIColor"]
 - ["CSo16UIViewController", "UILabel"]

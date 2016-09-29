@@ -8,8 +8,9 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet var homeButton: UIButton!
     @IBOutlet var addBeaconButton: UIButton!
     var homeKitUtil:HomeKitUtility? = HomeKitUtility.sharedInstance
@@ -25,7 +26,6 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        
     }
     
     // MARK: - Private Methods
@@ -38,14 +38,31 @@ class HomeViewController: UIViewController {
         homeButton.layer.cornerRadius = homeButton.frame.size.width / 2
         homeButton.layer.borderColor = UIColor.blueColor().CGColor
         homeButton.layer.borderWidth = 2.0
-        
-        addBeaconButton.layer.cornerRadius = addBeaconButton.frame.size.width / 2
-        addBeaconButton.layer.borderColor = UIColor.blueColor().CGColor
-        addBeaconButton.layer.borderWidth = 2.0
+        homeButton.hidden = true
+//        addBeaconButton.layer.cornerRadius = addBeaconButton.frame.size.width / 2
+//        addBeaconButton.layer.borderColor = UIColor.blueColor().CGColor
+//        addBeaconButton.layer.borderWidth = 2.0
     }
     
     func rightBarbuttonAction(){
         homeKitUtil?.initializeHomeKit()
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell") ??
+        UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
+        cell.textLabel?.text = "Home"
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        return cell
+//        return UITableViewCell()
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
 }

@@ -95,6 +95,7 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 @import UIKit;
 @import ObjectiveC;
 @import HomeKit;
+@import CoreGraphics;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -203,15 +204,36 @@ SWIFT_CLASS("_TtC14HomeKitDemoApp14HomeKitUtility")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UITableView;
+@class UITableViewCell;
 
 SWIFT_CLASS("_TtC14HomeKitDemoApp18HomeViewController")
-@interface HomeViewController : UIViewController
-@property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified addHomeButton;
+@interface HomeViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified mainTableView;
+@property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified homeButton;
 @property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified addBeaconButton;
+@property (nonatomic, strong) HomeKitUtility * _Nullable homeKitUtil;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)setUp;
+- (void)rightBarbuttonAction;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UIProgressView;
+
+SWIFT_CLASS("_TtC14HomeKitDemoApp12PushLinkView")
+@interface PushLinkView : UIView
+@property (nonatomic, strong) IBOutlet UIProgressView * _Null_unspecified progressView;
+@property (nonatomic, readonly, strong) HomeKitUtility * _Nullable homeKitUtil;
+- (UIView * _Nonnull)initWithNib;
+- (void)setUp;
+- (void)buttonNotPressedTime:(float)timeLeft;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -229,7 +251,6 @@ SWIFT_CLASS("_TtC14HomeKitDemoApp8RoomCell")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UITableView;
 
 SWIFT_CLASS("_TtC14HomeKitDemoApp6RoomVC")
 @interface RoomVC : UIViewController <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>

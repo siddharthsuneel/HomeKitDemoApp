@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="t2o-JB-ayA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XO4-5K-Drd">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -57,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1103" y="399"/>
+            <point key="canvasLocation" x="1915" y="399"/>
         </scene>
         <!--HomeView Controller-->
         <scene sceneID="A5k-Xh-ZXT">
@@ -71,6 +71,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4BI-eT-q9F">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="XO4-5K-Drd" id="d66-13-Wjp"/>
+                                    <outlet property="delegate" destination="XO4-5K-Drd" id="kxd-oI-lGE"/>
+                                </connections>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieo-Do-uYQ">
                                 <rect key="frame" x="250" y="70" width="100" height="100"/>
                                 <constraints>
@@ -80,30 +88,55 @@
                                 <state key="normal" title="Homes"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="952-rU-Nao">
-                                <rect key="frame" x="250" y="450" width="100" height="100"/>
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="WcU-bs-89N"/>
+                                    <constraint firstAttribute="height" constant="50" id="28u-7D-DsX"/>
                                     <constraint firstAttribute="width" constant="100" id="lKs-JA-1fD"/>
                                 </constraints>
                                 <state key="normal" title="Add Beacon"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="lKs-JA-1fD"/>
+                                    </mask>
+                                </variation>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="GVJ-ju-YEl" firstAttribute="top" secondItem="952-rU-Nao" secondAttribute="bottom" id="0Lw-uf-7SJ"/>
                             <constraint firstItem="GVJ-ju-YEl" firstAttribute="top" secondItem="952-rU-Nao" secondAttribute="bottom" constant="50" id="4Gh-MO-W7i"/>
-                            <constraint firstItem="952-rU-Nao" firstAttribute="centerX" secondItem="t5K-n4-z7B" secondAttribute="centerX" id="TcI-fP-0h9"/>
+                            <constraint firstItem="952-rU-Nao" firstAttribute="top" secondItem="4BI-eT-q9F" secondAttribute="bottom" id="6kw-Kd-K8o"/>
+                            <constraint firstItem="952-rU-Nao" firstAttribute="top" secondItem="4BI-eT-q9F" secondAttribute="bottom" id="7vA-rS-ypq"/>
+                            <constraint firstItem="4BI-eT-q9F" firstAttribute="leading" secondItem="t5K-n4-z7B" secondAttribute="leading" id="PEc-zr-LeR"/>
+                            <constraint firstItem="952-rU-Nao" firstAttribute="centerX" secondItem="t5K-n4-z7B" secondAttribute="centerX" id="SbT-8e-xrV"/>
                             <constraint firstItem="ieo-Do-uYQ" firstAttribute="top" secondItem="g0m-PY-P6x" secondAttribute="bottom" constant="50" id="Th8-Oj-TtR"/>
+                            <constraint firstItem="GVJ-ju-YEl" firstAttribute="top" secondItem="952-rU-Nao" secondAttribute="bottom" id="Zsw-wc-h0z"/>
+                            <constraint firstItem="952-rU-Nao" firstAttribute="width" secondItem="t5K-n4-z7B" secondAttribute="width" id="ZwC-Fc-cbO"/>
+                            <constraint firstItem="4BI-eT-q9F" firstAttribute="top" secondItem="t5K-n4-z7B" secondAttribute="top" id="bno-5Y-9IB"/>
+                            <constraint firstItem="952-rU-Nao" firstAttribute="width" secondItem="t5K-n4-z7B" secondAttribute="width" id="rjf-df-br2"/>
                             <constraint firstItem="ieo-Do-uYQ" firstAttribute="centerX" secondItem="t5K-n4-z7B" secondAttribute="centerX" id="us5-0p-Wf0"/>
+                            <constraint firstAttribute="trailing" secondItem="4BI-eT-q9F" secondAttribute="trailing" id="vUf-8C-snW"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="rjf-df-br2"/>
+                                <exclude reference="0Lw-uf-7SJ"/>
+                                <exclude reference="4Gh-MO-W7i"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="40E-Rh-HHe"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="addBeaconButton" destination="952-rU-Nao" id="fUT-XR-3tu"/>
                         <outlet property="homeButton" destination="ieo-Do-uYQ" id="s1w-JY-B7J"/>
+                        <outlet property="mainTableView" destination="4BI-eT-q9F" id="Opa-HR-vdK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEi-Gg-9OT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1103" y="1070"/>
+            <point key="canvasLocation" x="1915" y="1070"/>
         </scene>
         <!--AppliancesVC-->
         <scene sceneID="oDq-Y8-241">
@@ -282,22 +315,37 @@
             <point key="canvasLocation" x="593" y="1739"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="8NB-bf-hJ0">
+        <scene sceneID="fI3-f0-lWm">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t2o-JB-ayA" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XiV-ju-UTJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C7C-c2-YSn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZHk-vD-fQD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vEU-dR-lZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1103" y="1070"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2kh-E9-DBv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1se-lt-WtU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wne-uN-r2U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="z5T-o8-UCN"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1hw-VS-7uE"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pyq-Xs-4Je" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e9n-72-1MG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="291" y="399"/>
+            <point key="canvasLocation" x="1103" y="399"/>
         </scene>
     </scenes>
     <resources>

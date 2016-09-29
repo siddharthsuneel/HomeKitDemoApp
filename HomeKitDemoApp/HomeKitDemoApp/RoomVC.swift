@@ -15,6 +15,7 @@ class RoomVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         super.viewDidLoad()
                 
         // Do any additional setup after loading the view, typically from a nib.
+        mainTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     
@@ -30,7 +31,6 @@ class RoomVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell")!
-        
         return cell
     }
     
