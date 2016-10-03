@@ -62,10 +62,55 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
         self.accessoryBrowser.startSearchingForNewAccessories();
         
         self.initializePHHueSDK();
-        
-        
     }
     
+    func isPrimaryHomeExist(homeName:String!) -> Bool{
+        
+        var isPrimaryHomeExist:Bool = false;
+        
+        if(homeManager.primaryHome != nil){
+            if(homeManager.primaryHome!.name == homeName){
+                isPrimaryHomeExist = true;
+            }
+        }
+        else{
+            isPrimaryHomeExist = false;
+        }
+        
+        return isPrimaryHomeExist;
+    }
+    
+    func addHome(homeName:String!, completionHandler completion: ((Bool, NSError?) -> Void)!){
+        
+        print("ADD HOME");
+         
+        homeManager.addHomeWithName(homeName, completionHandler: { (home:HMHome?, error:NSError?) -> Void in
+            if(error != nil){
+                print(error);
+                completion(false, error);
+            }
+            else{
+                let filteredHomes = self.homes.filter { (_home) -> Bool in
+                    _home.name == home!.name;
+                };
+                if(filteredHomes.count > 0){
+                    let index:Int? = self.homes.indexOf(filteredHomes.last!);
+                    if(index == nil){
+                        self.homes.append(home!);
+                    }
+                    else{
+                        self.homes[index!] = home!;
+                    }
+                }
+                else{
+                    self.homes.append(home!);
+                }
+                completion(true, nil);
+            }
+        })
+        
+    }
+
     func initializePHHueSDK(){
         self.phHueSDK = PHHueSDK();
         self.phHueSDK!.startUpSDK();
