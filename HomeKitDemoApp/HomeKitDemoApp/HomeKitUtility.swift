@@ -9,14 +9,19 @@
 import UIKit
 import HomeKit
 
-protocol PushLinkDelegate {
-    func buttonNotPressedTime(timeLeft:Float)
+@objc protocol PushLinkDelegate {
+    
+    optional func buttonNotPressedTime(timeLeft:Float)
+}
+
+@objc protocol HomeKitConnectionDelegate{
+    optional func connectionUpdated()
 }
 
 class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccessoryDelegate, HMAccessoryBrowserDelegate {
     
-    var delegate: PushLinkDelegate?
-    
+    var pushLinkDelegate: PushLinkDelegate?
+    var connectionDelegate: HomeKitConnectionDelegate?
     var homeManager = HMHomeManager()
     
     var phHueSDK : PHHueSDK?
@@ -135,7 +140,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
          The heartbeat processing collects data from the bridge
          so now try to see if we have a bridge already connected
          *****************************************************/
-        
+        self.connectionDelegate?.connectionUpdated!()
         self.phResourcesCache = PHBridgeResourcesReader.readBridgeResourcesCache();
         
         if self.phResourcesCache == nil {
@@ -172,7 +177,6 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
         if(self.phHueSDK != nil){
             
             self.phResourcesCache = PHBridgeResourcesReader.readBridgeResourcesCache();
-            
             if self.phResourcesCache == nil {
                 
                 // Automaticly start searching for bridges
@@ -183,7 +187,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
                 
                 if self.phResourcesCache!.bridgeConfiguration != nil && self.phResourcesCache!.bridgeConfiguration.ipaddress != nil {
                     self.phAccessories.removeAll(keepCapacity: false);
-                    
+                    self.connectionDelegate?.connectionUpdated!()
                     if(self.phResourcesCache!.lights != nil){
                         for object in self.phResourcesCache!.lights {
                             
@@ -224,7 +228,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
             }
             else{
                 self.bridgesFound = nil
-                self.searchForBridgeLocal()
+                self.noBridgeFoundAction()
             }
             
         })
@@ -238,6 +242,17 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
         
         self.phHueSDK?.startPushlinkAuthentication();
     }
+    
+    //MARK :- Private Methods
+    
+    func noBridgeFoundAction(){
+        
+        let alertView:UIAlertView = UIAlertView(title: "Try Again", message:"No Bridge Found", delegate: nil, cancelButtonTitle: "OK");
+        alertView.show();
+        
+    }
+    //Mark:- Alert View Delegate Methods
+    
     
     
     //MARK:- Notification Functions
@@ -255,7 +270,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
             
         }
         else {
-            
+            self.connectionDelegate?.connectionUpdated!()
             print ("One of the connections is made");
             // One of the connections is made, remove popups and loading views
             
@@ -276,7 +291,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
         self.phNotificationManager.deregisterObjectForAllNotifications(self);
         
         self.phResourcesCache = PHBridgeResourcesReader.readBridgeResourcesCache();
-        
+        self.connectionDelegate?.connectionUpdated!()
         if self.phResourcesCache == nil {
             
             // Automaticly start searching for bridges
@@ -306,6 +321,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
      Notification receiver which is called when the pushlinking failed because the local connection to the bridge was lost
      */
     func noLocalConnection() {
+        self.connectionDelegate?.connectionUpdated!()
         let alertView:UIAlertView = UIAlertView(title: "Try Again", message:"Connection with Bridge Lost", delegate: nil, cancelButtonTitle: "Ok");
         alertView.show();
     }
@@ -314,6 +330,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
      Notification receiver which is called when the pushlinking failed because we do not know the address of the local bridge
      */
     func noLocalBridge() {
+        self.connectionDelegate?.connectionUpdated!()
         let alertView:UIAlertView = UIAlertView(title: "Try Again", message:"Local Bridge Not Found", delegate: nil, cancelButtonTitle: "Ok");
         alertView.show();
     }
@@ -329,7 +346,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
         let dict : NSDictionary = notification.userInfo!
         let progressPercent:AnyObject? = dict.objectForKey("progressPercentage")
         let progressBarValue:Float? = (progressPercent?.floatValue)!/100
-        delegate?.buttonNotPressedTime(progressBarValue!)
+        self.pushLinkDelegate?.buttonNotPressedTime!(progressBarValue!)
     }
     
 }

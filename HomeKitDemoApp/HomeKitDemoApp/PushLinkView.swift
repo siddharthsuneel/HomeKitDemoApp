@@ -20,7 +20,7 @@ class PushLinkView: UIView,PushLinkDelegate {
     }
     
     func setUp(){
-        homeKitUtil?.delegate = self
+        homeKitUtil?.pushLinkDelegate = self
     }
     
     func buttonNotPressedTime(timeLeft: Float) {

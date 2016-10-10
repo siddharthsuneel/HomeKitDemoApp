@@ -9,13 +9,22 @@
 import UIKit
 import HomeKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,HomeKitConnectionDelegate {
 
-    @IBOutlet weak var mainTableView: UITableView!
-    @IBOutlet var homeButton: UIButton!
+    @IBOutlet var statusValueLbl: UILabel!
+    @IBOutlet var statusLbl: UILabel!
+    @IBOutlet var mainTableView: UITableView!
     @IBOutlet var addBeaconButton: UIButton!
-    var homes:Array<HMHome>?
+    @IBOutlet var bridgeIdLbl: UILabel!
+    @IBOutlet var ipAddlbl: UILabel!
+    @IBOutlet var ipAddValueLbl: UILabel!
+    @IBOutlet var bridgeIdValueLbl: UILabel!
+    
+    var homes:Array<HMHome>? = []
+    var lightsArray:NSMutableArray = []
+    
     var homeKitUtil:HomeKitUtility? = HomeKitUtility.sharedInstance
+    var cache:PHBridgeResourcesCache?
     
     // MARK: - View LifeCycle Methods
     
@@ -34,87 +43,87 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func setUp(){
         
+        self.title = "DMI HomeKit App"
+        homeKitUtil?.connectionDelegate = self
         let rightButton = UIBarButtonItem(title: "Find Bridge", style: UIBarButtonItemStyle.Done , target: self, action:#selector(HomeViewController.rightBarbuttonAction))
         self.navigationItem.rightBarButtonItem = rightButton
-        
-        homeButton.layer.cornerRadius = homeButton.frame.size.width / 2
-        homeButton.layer.borderColor = UIColor.blueColor().CGColor
-        homeButton.layer.borderWidth = 2.0
-        homeButton.hidden = true
-//        addBeaconButton.layer.cornerRadius = addBeaconButton.frame.size.width / 2
-//        addBeaconButton.layer.borderColor = UIColor.blueColor().CGColor
-//        addBeaconButton.layer.borderWidth = 2.0
+       
     }
     
     func rightBarbuttonAction(){
-        homeKitUtil?.initializeHomeKit()
+        homeKitUtil?.searchForBridgeLocal()
     }
     
+    // MARK: - Table View Data Source + Delegate Methods
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+//        return 5
+        return (self.lightsArray.count) + 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") ??
-            UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
+            UITableViewCell.init(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
         
-        if(indexPath.row == 4){
-            cell.textLabel?.text = "Add Home"
+        if (indexPath.row == 0) {
+            cell.textLabel?.text = "List Of Available Lights"
+            cell.textLabel?.font = UIFont.boldSystemFontOfSize(20.0)
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
         }
         else{
-            cell.textLabel?.text = "Home"
+            let dict: PHLight = (self.lightsArray.objectAtIndex(indexPath.row - 1) as? PHLight)!
+            cell.textLabel?.text = dict.name
+            if (dict.lightState.reachable == 1) {
+                 cell.detailTextLabel?.text = "Available/Reachable"
+            }
+            else{
+                cell.detailTextLabel?.text = "Not Available/Not Reachable"
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyle.Default
         }
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
+
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if(indexPath.row == 4){
-            self.addHomeMethod()
+        if (indexPath.row != 0) {
+            let dict: PHLight = (self.lightsArray.objectAtIndex(indexPath.row - 1) as? PHLight)!
+            let roomVC:RoomViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("RoomViewController") as! RoomViewController
+            roomVC.title = dict.name
+            self.navigationController?.pushViewController(roomVC, animated: true)
+        }
+    }
+    
+    //MARK :- HomeKit Connection Delegate Method
+    
+    func connectionUpdated() {
+        cache = PHBridgeResourcesReader.readBridgeResourcesCache()
+        
+        if (cache != nil && cache?.bridgeConfiguration != nil && cache?.bridgeConfiguration.ipaddress != nil) {
+            self.bridgeIdValueLbl.text = cache?.bridgeConfiguration.bridgeId
+            self.ipAddValueLbl.text = cache?.bridgeConfiguration.ipaddress
+            self.navigationItem.rightBarButtonItem?.enabled = false
+            if(cache!.lights != nil){
+                self.lightsArray.removeAllObjects()
+                for object in self.cache!.lights.values {
+                    //                    print(object)
+                    self.lightsArray.addObject(object)
+                }
+                self.mainTableView.reloadData()
+            }
+        }
+        
+        if  (homeKitUtil!.phHueSDK!.localConnected() == false){
+            self.statusValueLbl.text = "Not Connected"
+            self.navigationItem.rightBarButtonItem?.enabled = true
         }
         else{
-            self.segueToSelectedHome()
+            self.statusValueLbl.text = "Connected"
+            self.navigationItem.rightBarButtonItem?.enabled = false
         }
+        
     }
     
-    //MARK :- Private Methods
     
-    func addHomeMethod(){
-        let alert:UIAlertController = UIAlertController(title: "Add Home", message: "Add new home to current list of homes", preferredStyle: .Alert)
-        
-        alert.addTextFieldWithConfigurationHandler(nil)
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) -> Void in
-            
-            let textField = alert.textFields?[0]
-            
-            if(HomeKitUtility.sharedInstance.isPrimaryHomeExist(textField!.text) == false){
-                
-                HomeKitUtility.sharedInstance.addHome(textField!.text, completionHandler: { (success, error:NSError?) -> Void in
-                    if(success){
-                        self.homes = HomeKitUtility.sharedInstance.homes;
-                        self.homes?.sortInPlace({ (home1:HMHome, home2:HMHome) -> Bool in
-                            home1.name < home2.name;
-                        });
-                        
-                        self.mainTableView.reloadData();
-                    }
-                })
-            }
-            else{
-                
-                let alertView:UIAlertView = UIAlertView(title: "Home already exist", message: "Home with \(textField!.text) is already existing.", delegate: nil, cancelButtonTitle: "Ok");
-                alertView.show();
-            }
-            
-        }));
-        
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    func segueToSelectedHome(){
-               
-    }
 }
