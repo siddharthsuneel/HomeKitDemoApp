@@ -20,9 +20,9 @@
 		2BD1F2BA1D7D96970096280E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B81D7D96970096280E /* LaunchScreen.storyboard */; };
 		2BD1F2C51D7D96970096280E /* HomeKitDemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2C41D7D96970096280E /* HomeKitDemoAppTests.swift */; };
 		2BD1F2DE1D7D96C60096280E /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD1F2DD1D7D96C60096280E /* HomeKit.framework */; };
+		3B2BF4031DAE0914006E0882 /* HueSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2BF4021DAE0914006E0882 /* HueSDK_iOS.framework */; };
 		3BA5977E1D7D9D000002B61C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5977D1D7D9D000002B61C /* Constant.swift */; };
 		3BAC49801D9B85F3002A558C /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC497F1D9B85F3002A558C /* RoomCell.swift */; };
-		3BAC49841D9BC2B3002A558C /* HueSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BAC49831D9BC2B3002A558C /* HueSDK_iOS.framework */; };
 		7D97AB16A5A38364B8798E52 /* Pods_HomeKitDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB92DD1A1477A68F89EBDD0 /* Pods_HomeKitDemoApp.framework */; };
 		B58FFF5B5F8CAA6B514A13F1 /* Pods_HomeKitDemoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54750A41BC1467D9629D802D /* Pods_HomeKitDemoAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -59,9 +59,9 @@
 		2BD1F2D11D7D96970096280E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BD1F2DD1D7D96C60096280E /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		2BD1F2DF1D7D96C60096280E /* HomeKitDemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeKitDemoApp.entitlements; sourceTree = "<group>"; };
+		3B2BF4021DAE0914006E0882 /* HueSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HueSDK_iOS.framework; sourceTree = "<group>"; };
 		3BA5977D1D7D9D000002B61C /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3BAC497F1D9B85F3002A558C /* RoomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
-		3BAC49831D9BC2B3002A558C /* HueSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HueSDK_iOS.framework; path = HomeKitDemoApp/HueSDK_iOS.framework; sourceTree = "<group>"; };
 		4EBD133BE9E8C9360EBC5ECD /* Pods-HomeKitDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeKitDemoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HomeKitDemoApp/Pods-HomeKitDemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		5307FEEE0A4907D78AD394E9 /* Pods-HomeKitDemoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeKitDemoAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeKitDemoAppTests/Pods-HomeKitDemoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		53D53F1FBF251657A8348011 /* Pods_HomeKitDemoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeKitDemoAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,7 +80,7 @@
 			files = (
 				2B6179A01D926CC3003B8CF9 /* CoreLocation.framework in Frameworks */,
 				2BD1F2DE1D7D96C60096280E /* HomeKit.framework in Frameworks */,
-				3BAC49841D9BC2B3002A558C /* HueSDK_iOS.framework in Frameworks */,
+				3B2BF4031DAE0914006E0882 /* HueSDK_iOS.framework in Frameworks */,
 				7D97AB16A5A38364B8798E52 /* Pods_HomeKitDemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,7 +135,7 @@
 		2BD1F2A31D7D96970096280E = {
 			isa = PBXGroup;
 			children = (
-				3BAC49831D9BC2B3002A558C /* HueSDK_iOS.framework */,
+				3B2BF4021DAE0914006E0882 /* HueSDK_iOS.framework */,
 				2B61799F1D926CC3003B8CF9 /* CoreLocation.framework */,
 				2BD1F2DD1D7D96C60096280E /* HomeKit.framework */,
 				2BD1F2AE1D7D96970096280E /* HomeKitDemoApp */,
@@ -597,6 +597,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HomeKitDemoApp-Bridgiing-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -627,6 +628,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HomeKitDemoApp-Bridgiing-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

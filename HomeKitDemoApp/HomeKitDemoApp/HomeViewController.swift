@@ -32,7 +32,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         self.setUp()
-        
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -61,6 +61,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return (self.lightsArray.count) + 1
     }
     
+//    public var isAccessibilityElement: Bool {
+//        get {
+//            return false
+//        }
+//        set {
+//        }
+//    }
+//    
+//    public var accessibilityLabel: String? {
+//        get {
+//            return nil
+//        }
+//        set {
+//        }
+//    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") ??
@@ -76,13 +92,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.textLabel?.text = dict.name
             if (dict.lightState.reachable == 1) {
                  cell.detailTextLabel?.text = "Available/Reachable"
+                cell.textLabel?.accessibilityLabel = "\(dict.name) is Reachable"
             }
             else{
                 cell.detailTextLabel?.text = "Not Available/Not Reachable"
+                cell.textLabel?.accessibilityLabel = "\(dict.name) is not Reachable"
             }
             cell.selectionStyle = UITableViewCellSelectionStyle.Default
+            
         }
-
+        cell.textLabel?.isAccessibilityElement=true
+        cell.detailTextLabel?.isAccessibilityElement=false
         return cell
     }
     
@@ -126,5 +146,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    
+//    @IBAction func addBeaconAction(sender: AnyObject) {
+//        let addBeaconVc: AddBeaconViewController = AddBeaconViewController()
+//        self.presentViewController(addBeaconVc, animated: true, completion: nil)
+//    }
 }

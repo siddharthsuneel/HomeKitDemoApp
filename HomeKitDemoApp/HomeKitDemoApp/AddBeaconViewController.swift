@@ -21,7 +21,11 @@ class AddBeaconViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func cancelBtnAction(sender: AnyObject) {
+        
+        self.dismissViewControllerAnimated(false, completion: nil)
+        
+    }
     /*
     // MARK: - Navigation
 
