@@ -32,11 +32,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         self.setUp()
-
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, "hello");
     }
     
     // MARK: - Private Methods

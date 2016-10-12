@@ -16,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="GVJ-ju-YEl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="t5K-n4-z7B">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4BI-eT-q9F">
@@ -43,9 +43,6 @@
                                         <exclude reference="lKs-JA-1fD"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <action selector="addBeaconAction:" destination="XO4-5K-Drd" eventType="touchUpInside" id="VY9-HQ-0mO"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxM-vJ-4aV">
                                 <accessibility key="accessibilityConfiguration" label="Status"/>
@@ -121,7 +118,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="addBeaconButton" destination="952-rU-Nao" id="fUT-XR-3tu"/>
-                        <outlet property="addBtnAction" destination="952-rU-Nao" id="DPL-Zn-qzc"/>
                         <outlet property="bridgeIdLbl" destination="2zO-Bf-sTC" id="m1z-62-v8k"/>
                         <outlet property="bridgeIdValueLbl" destination="GoC-c9-aFi" id="TZj-lU-UBN"/>
                         <outlet property="ipAddValueLbl" destination="4WD-sn-qWT" id="pvh-zh-guM"/>
@@ -144,7 +140,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0HK-q7-RbN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aHR-89-FpG">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a51-g0-6vQ">
@@ -205,16 +201,10 @@
                         <viewControllerLayoutGuide type="bottom" id="27U-Re-0c3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ODO-Vh-iL1">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< Updated upstream
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brightness :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CF8-SD-fxD">
-                                <rect key="frame" x="30" y="70" width="92" height="80"/>
-=======
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CF8-SD-fxD">
-                                <frame key="frameInset" minX="30" minY="70" width="400" height="80"/>
->>>>>>> Stashed changes
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="qcJ-FG-wHR"/>
                                 </constraints>
@@ -225,19 +215,12 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2uc-xf-P8W">
                                 <frame key="frameInset" minX="460" minY="80" width="51" height="31"/>
                             </switch>
-<<<<<<< Updated upstream
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lOv-ZI-M0x">
-                                <rect key="frame" x="28" y="180" width="544" height="31"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="Pjr-hk-fox" eventType="touchUpInside" id="Cxo-0b-ioP"/>
                                 </connections>
-=======
-                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lOv-ZI-M0x">
-                                <frame key="frameInset" minX="28" minY="180" width="544" height="31"/>
->>>>>>> Stashed changes
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0t-Ic-koA">
-                                <rect key="frame" x="142" y="70" width="42" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="a2n-eQ-0Zm"/>
                                 </constraints>
