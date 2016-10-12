@@ -13,13 +13,10 @@ class RoomViewController: UIViewController {
     @IBOutlet var headerLabel: UILabel!
     @IBOutlet var slider: UISlider!
     @IBOutlet var controlSwitch: UISwitch!
+    @IBOutlet var brightnessValueLbl: UILabel!
     
-    var redBtn:UIButton?
-    var blueBtn:UIButton?
-    var greenBtn:UIButton?
-    var yellowBtn:UIButton?
-    var effect1btn:UIButton?
-    var effect2btn:UIButton?
+    var selectedLight:PHLight?
+    var bridgeSendAPI:PHBridgeSendAPI? = PHBridgeSendAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,65 +32,53 @@ class RoomViewController: UIViewController {
     func setUp(){
         self.view.backgroundColor = UIColor.whiteColor()
         
-//        redBtn = UIButton(frame: CGRectZero)
-//        redBtn?.backgroundColor = UIColor.redColor()
-//        redBtn?.layer.borderColor = UIColor.blackColor().CGColor
-//        redBtn?.layer.borderWidth = 1.0
-//        self.view.addSubview(redBtn!)
-//        
-//        blueBtn = UIButton(frame: CGRectZero)
-//        blueBtn?.backgroundColor = UIColor.redColor()
-//        blueBtn?.layer.borderColor = UIColor.blackColor().CGColor
-//        blueBtn?.layer.borderWidth = 1.0
-//        self.view.addSubview(blueBtn!)
-//        
-//        greenBtn = UIButton(frame: CGRectZero)
-//        greenBtn?.backgroundColor = UIColor.redColor()
-//        greenBtn?.layer.borderColor = UIColor.blackColor().CGColor
-//        greenBtn?.layer.borderWidth = 1.0
-//        self.view.addSubview(greenBtn!)
-//        
-//        yellowBtn = UIButton(frame: CGRectZero)
-//        yellowBtn?.backgroundColor = UIColor.redColor()
-//        yellowBtn?.layer.borderColor = UIColor.blackColor().CGColor
-//        yellowBtn?.layer.borderWidth = 1.0
-//        self.view.addSubview(yellowBtn!)
-//        
-//        effect1btn = UIButton(frame: CGRectZero)
-//        effect1btn?.backgroundColor = UIColor.redColor()
-//        effect1btn?.layer.borderColor = UIColor.blackColor().CGColor
-//        effect1btn?.layer.borderWidth = 1.0
-//        self.view.addSubview(effect1btn!)
-//        
-//        effect2btn = UIButton(frame: CGRectZero)
-//        effect2btn?.backgroundColor = UIColor.redColor()
-//        effect2btn?.layer.borderColor = UIColor.blackColor().CGColor
-//        effect2btn?.layer.borderWidth = 1.0
-//        self.view.addSubview(effect2btn!)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
         
+        let switchState:Bool = (selectedLight?.lightState.on.boolValue)!
+        self.controlSwitch.setOn(switchState, animated: true)
+        self.controlSwitch.addTarget(self, action:#selector(RoomViewController.switchValueChangedAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        
+        self.slider.value = ((selectedLight?.lightState.brightness.floatValue)! / 250.0)
+        self.brightnessValueLbl.text = "\(self.slider.value * 250)"
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+                
+    }
+    
+    func switchValueChangedAction(aSwitch:UISwitch){
+        let lightState:PHLightState = PHLightState.init()
         
-//        let btnSize:CGFloat = 75.0
-//        
-//        redBtn?.layer.cornerRadius = btnSize/2
-//        blueBtn?.layer.cornerRadius = btnSize/2
-//        greenBtn?.layer.cornerRadius = btnSize/2
-//        yellowBtn?.layer.cornerRadius = btnSize/2
-//        effect1btn?.layer.cornerRadius = btnSize/2
-//        effect2btn?.layer.cornerRadius = btnSize/2
-//        
-//        let vPadding:CGFloat = 50.0
-//        let hPadding:CGFloat = 30.0
-//        
-//        var x = CGRectGetMaxX(slider.frame)
-//        var y = CGRectGetMaxY(slider.frame)
-//        y = y + vPadding
-//        redBtn?.frame = CGRectMake(x, y, btnSize, btnSize)
-//        
-//        x =
+        let value = aSwitch.on
+        lightState.setOnBool(value)
+        self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
+    }
+    
+    func changeLightColor(){
+//        let lightState:PHLightState = PHLightState.init()
+    
+    }
+    
+    @IBAction func sliderValueChanged(sender: UISlider) {
+        let lightState:PHLightState = PHLightState.init()
+        let brightness = Int(sender.value * 250)
+        self.brightnessValueLbl.text = "\(brightness)"
+        lightState.brightness = NSNumber.init(integer: brightness)
+        
+        self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
+    }
+    
+    func updateLightState(aLightIdentifier:String, aLightState:PHLightState){
+        bridgeSendAPI?.updateLightStateForId(aLightIdentifier, withLightState: aLightState, completionHandler: { (error) in
+            if error != nil{
+                let alertView:UIAlertView = UIAlertView(title: "Error !", message:error.debugDescription, delegate: nil, cancelButtonTitle: "OK");
+                alertView.show();
+            }
+        })
         
     }
     

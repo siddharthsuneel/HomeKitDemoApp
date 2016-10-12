@@ -199,8 +199,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CF8-SD-fxD">
-                                <rect key="frame" x="30" y="70" width="400" height="80"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brightness :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CF8-SD-fxD">
+                                <rect key="frame" x="30" y="70" width="92" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="qcJ-FG-wHR"/>
                                 </constraints>
@@ -213,21 +213,35 @@
                             </switch>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lOv-ZI-M0x">
                                 <rect key="frame" x="28" y="180" width="544" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="Pjr-hk-fox" eventType="touchUpInside" id="Cxo-0b-ioP"/>
+                                </connections>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0t-Ic-koA">
+                                <rect key="frame" x="142" y="70" width="42" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="a2n-eQ-0Zm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CF8-SD-fxD" firstAttribute="top" secondItem="bt8-WK-EAa" secondAttribute="bottom" constant="50" id="FcQ-2t-4wu"/>
-                            <constraint firstItem="2uc-xf-P8W" firstAttribute="leading" secondItem="CF8-SD-fxD" secondAttribute="trailing" constant="30" id="HUj-fb-ErH"/>
+                            <constraint firstItem="N0t-Ic-koA" firstAttribute="leading" secondItem="CF8-SD-fxD" secondAttribute="trailing" constant="20" id="KCc-je-JJG"/>
                             <constraint firstItem="lOv-ZI-M0x" firstAttribute="leading" secondItem="ODO-Vh-iL1" secondAttribute="leading" constant="30" id="OlO-Cs-SjW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2uc-xf-P8W" secondAttribute="trailing" constant="71" id="R72-Z5-E8f"/>
                             <constraint firstItem="CF8-SD-fxD" firstAttribute="leading" secondItem="ODO-Vh-iL1" secondAttribute="leading" constant="30" id="cVM-vX-tOZ"/>
+                            <constraint firstItem="N0t-Ic-koA" firstAttribute="top" secondItem="bt8-WK-EAa" secondAttribute="bottom" constant="50" id="gDr-Mm-MSu"/>
                             <constraint firstItem="lOv-ZI-M0x" firstAttribute="top" secondItem="CF8-SD-fxD" secondAttribute="bottom" constant="30" id="gs9-Qe-FEJ"/>
                             <constraint firstAttribute="trailing" secondItem="lOv-ZI-M0x" secondAttribute="trailing" constant="30" id="nyW-df-uGm"/>
                             <constraint firstItem="2uc-xf-P8W" firstAttribute="top" secondItem="bt8-WK-EAa" secondAttribute="bottom" constant="60" id="pwg-nB-ZrL"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="brightnessValueLbl" destination="N0t-Ic-koA" id="ZGu-WU-UiU"/>
                         <outlet property="controlSwitch" destination="2uc-xf-P8W" id="WyE-aM-7VB"/>
                         <outlet property="headerLabel" destination="CF8-SD-fxD" id="1Un-wC-RJ5"/>
                         <outlet property="slider" destination="lOv-ZI-M0x" id="yoP-rr-Jm0"/>

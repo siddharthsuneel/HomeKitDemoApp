@@ -91,6 +91,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let dict: PHLight = (self.lightsArray.objectAtIndex(indexPath.row - 1) as? PHLight)!
             let roomVC:RoomViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("RoomViewController") as! RoomViewController
             roomVC.title = dict.name
+            roomVC.selectedLight = dict
             self.navigationController?.pushViewController(roomVC, animated: true)
         }
     }
