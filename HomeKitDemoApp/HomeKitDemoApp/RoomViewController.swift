@@ -43,11 +43,11 @@ class RoomViewController: UIViewController {
         
         self.slider.value = ((selectedLight?.lightState.brightness.floatValue)! / 250.0)
         self.brightnessValueLbl.text = "\(self.slider.value * 250)"
+        self.brightnessValueLbl.accessibilityHint = "Brightness of the Hue lamp is \(self.brightnessValueLbl.text)"
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-                
     }
     
     func switchValueChangedAction(aSwitch:UISwitch){
