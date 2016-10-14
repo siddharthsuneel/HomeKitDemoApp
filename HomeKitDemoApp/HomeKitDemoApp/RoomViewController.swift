@@ -70,6 +70,7 @@ class RoomViewController: UIViewController {
         lightState.brightness = NSNumber.init(integer: brightness)
         
         self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
+        sender.accessibilityValue = "Brightness of the Hue lamp is \(slider.value)"
     }
     
     func updateLightState(aLightIdentifier:String, aLightState:PHLightState){
