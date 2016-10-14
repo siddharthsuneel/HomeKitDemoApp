@@ -21,12 +21,7 @@ class AddBeaconViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func cancelBtnAction(sender: AnyObject) {
-        
-        self.dismissViewControllerAnimated(false, completion: nil)
-        
-    }
-    /*
+     /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -36,4 +31,7 @@ class AddBeaconViewController: UIViewController {
     }
     */
 
+    @IBAction func cancelBtnClick(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 }

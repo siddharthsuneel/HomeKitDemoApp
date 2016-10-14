@@ -31,12 +31,18 @@ class RoomViewController: UIViewController {
     
     func setUp(){
         self.view.backgroundColor = UIColor.whiteColor()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        
+        let backButton = UIBarButtonItem(
+            title: "Back",
+            style: UIBarButtonItemStyle.Plain, // Note: .Bordered is deprecated
+            target: nil,
+            action: nil
+        )
+        self.navigationController!.navigationBar.topItem!.backBarButtonItem = backButton
+        self.accessSetup();
         let switchState:Bool = (selectedLight?.lightState.on.boolValue)!
         self.controlSwitch.setOn(switchState, animated: true)
         self.controlSwitch.addTarget(self, action:#selector(RoomViewController.switchValueChangedAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
@@ -94,4 +100,52 @@ class RoomViewController: UIViewController {
     }
     */
 
+    @IBAction func redAction(sender: AnyObject) {
+        let lightState:PHLightState = PHLightState.init()
+        lightState.hue = NSNumber.init(int: 0)
+        lightState.saturation = NSNumber.init(int: 100)
+        self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
+    }
+
+    @IBAction func yellowAction(sender: AnyObject) {
+        let lightState:PHLightState = PHLightState.init()
+        lightState.hue = NSNumber.init(int: 60)
+        lightState.saturation = NSNumber.init(int: 100)
+        self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
+    }
+    
+    @IBAction func greenAction(sender: AnyObject) {
+        let lightState:PHLightState = PHLightState.init()
+        lightState.hue = NSNumber.init(int: 138)
+        lightState.saturation = NSNumber.init(int: 97)
+        self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
+    }
+    
+    @IBAction func whiteAction(sender: AnyObject) { // Lavander Color
+        let lightState:PHLightState = PHLightState.init()
+        lightState.hue = NSNumber.init(int: 270)
+        lightState.saturation = NSNumber.init(int: 31)
+        self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
+    }
+    
+    @IBAction func blueAction(sender: AnyObject) {
+        let lightState:PHLightState = PHLightState.init()
+        lightState.hue = NSNumber.init(int: 240)
+        lightState.saturation = NSNumber.init(int: 100)
+        self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
+    }
+    
+    @IBAction func effect1Action(sender: AnyObject) {
+//        let lightState:PHLightState = PHLightState.init()
+//        lightState.hue = NSNumber.init(int: 240)
+//        lightState.saturation = NSNumber.init(int: 100)
+
+    }
+    
+    func accessSetup(){
+        let msgStr : String = "You are on the Room screen. You can set the brightness and color of the light of Hue Lamp. Scroll the slider left or right, to set the brightness and in oder to set the color of the light, tap on the color or effect. Current brightness of the Hue lamp is \(slider.value)"
+        UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, msgStr);
+
+    }
+    
 }

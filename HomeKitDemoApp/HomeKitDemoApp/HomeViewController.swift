@@ -30,35 +30,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.isAccessibilityElement = false
         self.setUp()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.view.isAccessibilityElement = false
-        var msgStr : String = "You are at the Home screen."
-        if(self.statusValueLbl.text == "Not Connected")
-        {
-            msgStr += "Bridge is not connected. You need to tap on the find bridge in the top right corner of the screen in order to search for bridge."
-        }
-        else{
-            msgStr += "You connected with the bridge. Please select the connected bridge from the list to proceed further"
-        }
-        UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, msgStr);
+        self.accessSetUp()
     }
     
     // MARK: - Private Methods
     
     func setUp(){
-        self.isAccessibilityElement = false
+
         self.title = "DMI HomeKit App"
         homeKitUtil?.connectionDelegate = self
         let rightButton = UIBarButtonItem(title: "Find Bridge", style: UIBarButtonItemStyle.Done , target: self, action:#selector(HomeViewController.rightBarbuttonAction))
         self.navigationItem.rightBarButtonItem = rightButton
-        self.navigationItem.isAccessibilityElement = true
         self.navigationItem.rightBarButtonItem?.accessibilityLabel = "Find Bridge"
         self.navigationItem.rightBarButtonItem?.accessibilityHint = "This will start searching the available bridge and shows the list of bridges"
+
     }
     
     func rightBarbuttonAction(){
@@ -71,7 +61,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        return 5
         return (self.lightsArray.count) + 1
     }
-    
+
 //    public var isAccessibilityElement: Bool {
 //        get {
 //            return false
@@ -157,8 +147,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-//    @IBAction func addBeaconAction(sender: AnyObject) {
-//        let addBeaconVc: AddBeaconViewController = AddBeaconViewController()
-//        self.presentViewController(addBeaconVc, animated: true, completion: nil)
-//    }
+    @IBAction func addBeacon(sender: AnyObject) {
+       let addBeacon = self.storyboard?.instantiateViewControllerWithIdentifier("AddBeaconViewController") as! AddBeaconViewController
+        self.navigationController?.pushViewController(addBeacon, animated: true)
+    }
+   
+    func accessSetUp(){
+        var msgStr : String = "You are at the Home screen."
+        if(self.statusValueLbl.text == "Not Connected")
+        {
+            msgStr += "Bridge is not connected. You need to tap on the find bridge in the top right corner of the screen in order to search for bridge."
+        }
+        else{
+            msgStr += "You connected with the bridge. Please select the connected bridge from the list to proceed further"
+        }
+        UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, msgStr);
+    }
 }
