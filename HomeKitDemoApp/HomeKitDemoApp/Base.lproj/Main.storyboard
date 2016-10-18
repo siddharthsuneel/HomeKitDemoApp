@@ -278,39 +278,6 @@
                                     <action selector="yellowBtnClick:" destination="Pjr-hk-fox" eventType="touchUpInside" id="WKj-0s-GWs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOu-lK-6Ci">
-                                <frame key="frameInset" minX="39" minY="407" width="46" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                </accessibility>
-                                <state key="normal" title="Lavander"/>
-                                <connections>
-                                    <action selector="lavenderBtnClick:" destination="Pjr-hk-fox" eventType="touchUpInside" id="Rcc-sJ-yKk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Mq-ai-LJp">
-                                <frame key="frameInset" minX="127" minY="407" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                </accessibility>
-                                <state key="normal" title="Green"/>
-                                <connections>
-                                    <action selector="greenBtnClick:" destination="Pjr-hk-fox" eventType="touchUpInside" id="YQ3-vh-gWB"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaV-uQ-bzB">
-                                <frame key="frameInset" minX="203" minY="407" width="52" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                </accessibility>
-                                <state key="normal" title="Effect1"/>
-                                <connections>
-                                    <action selector="effect1BtnClick:" destination="Pjr-hk-fox" eventType="touchUpInside" id="epx-Gv-Ssg"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="List of color for light effect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRd-Cz-LhT">
                                 <frame key="frameInset" minX="39" minY="326" width="240" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -336,10 +303,7 @@
                         <outlet property="bluebutton" destination="Zuy-hB-1B0" id="3d5-9J-lqf"/>
                         <outlet property="brightnessValueLbl" destination="N0t-Ic-koA" id="ZGu-WU-UiU"/>
                         <outlet property="controlSwitch" destination="2uc-xf-P8W" id="WyE-aM-7VB"/>
-                        <outlet property="effect1Button" destination="zaV-uQ-bzB" id="54g-wI-VuI"/>
-                        <outlet property="greenButton" destination="1Mq-ai-LJp" id="0C4-VH-y2X"/>
                         <outlet property="headerLabel" destination="CF8-SD-fxD" id="1Un-wC-RJ5"/>
-                        <outlet property="lavanderButton" destination="kOu-lK-6Ci" id="3X1-vn-YUT"/>
                         <outlet property="redbutton" destination="wnq-3w-nFU" id="zM2-9C-CLY"/>
                         <outlet property="slider" destination="lOv-ZI-M0x" id="yoP-rr-Jm0"/>
                         <outlet property="yellowButton" destination="0Ca-j6-nGS" id="tVC-T1-rx5"/>

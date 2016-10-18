@@ -14,10 +14,6 @@ class RoomViewController: UIViewController {
     @IBOutlet var slider: UISlider!
     @IBOutlet var controlSwitch: UISwitch!
     @IBOutlet var brightnessValueLbl: UILabel!
-    
-    @IBOutlet weak var effect1Button: UIButton!
-    @IBOutlet weak var lavanderButton: UIButton!
-    @IBOutlet weak var greenButton: UIButton!
     @IBOutlet weak var yellowButton: UIButton!
     @IBOutlet weak var bluebutton: UIButton!
     @IBOutlet weak var redbutton: UIButton!
@@ -101,49 +97,20 @@ class RoomViewController: UIViewController {
     
     @IBAction func blueBtnClick(sender: AnyObject) {
         let lightState:PHLightState = PHLightState.init()
-        lightState.hue = NSNumber.init(int: 240)
-        lightState.saturation = NSNumber.init(int: 100)
+        lightState.x = NSNumber.init(float: 0.229)
+        lightState.y = NSNumber.init(float: 0.1559)
         self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
     }
     
     
     @IBAction func yellowBtnClick(sender: AnyObject) {
         let lightState:PHLightState = PHLightState.init()
-        lightState.hue = NSNumber.init(int: 60)
-        lightState.saturation = NSNumber.init(int: 100)
+        lightState.x = NSNumber.init(float: 0.859)
+        lightState.y = NSNumber.init(float: 0.899)
         self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
     }
     
-    @IBAction func lavenderBtnClick(sender: AnyObject) {
-        let lightState:PHLightState = PHLightState.init()
-        lightState.hue = NSNumber.init(int: 270)
-        lightState.saturation = NSNumber.init(int: 31)
-        self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
-    }
-    
-    @IBAction func greenBtnClick(sender: AnyObject) {
-        let lightState:PHLightState = PHLightState.init()
-        lightState.hue = NSNumber.init(int: 138)
-        lightState.saturation = NSNumber.init(int: 97)
-        self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
-    }
-    
-    @IBAction func effect1BtnClick(sender: AnyObject) {
-        let lightState:PHLightState = PHLightState.init()
-        lightState.hue = NSNumber.init(int: 240)
-        lightState.saturation = NSNumber.init(int: 100)
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-  
+   
     func accessSetup(){
         let msgStr : String = "You are on the Room screen. You can set the brightness and color of the light of Hue Lamp. Scroll the slider left or right, to set the brightness and in oder to set the color of the light, tap on the color or effect. Current brightness of the Hue lamp is \(slider.value)"
         UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, msgStr);
