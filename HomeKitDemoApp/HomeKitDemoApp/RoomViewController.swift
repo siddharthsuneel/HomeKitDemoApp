@@ -52,7 +52,6 @@ class RoomViewController: UIViewController {
         
         self.slider.value = ((selectedLight?.lightState.brightness.floatValue)! / 250.0)
         self.brightnessValueLbl.text = "\(self.slider.value * 250)"
-        self.brightnessValueLbl.accessibilityHint = "Brightness of the Hue lamp is \(self.brightnessValueLbl.text)"
     }
     
     override func viewWillLayoutSubviews() {
@@ -73,14 +72,13 @@ class RoomViewController: UIViewController {
         self.brightnessValueLbl.text = "\(brightness)"
         lightState.brightness = NSNumber.init(integer: brightness)
         self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
-        sender.accessibilityValue = "Brightness of the Hue lamp is \(slider.value)"
     }
     
     
     func updateLightState(aLightIdentifier:String, aLightState:PHLightState){
         bridgeSendAPI?.updateLightStateForId(aLightIdentifier, withLightState: aLightState, completionHandler: { (error) in
             if error != nil{
-                let alertView:UIAlertView = UIAlertView(title: "Error !", message:error.debugDescription, delegate: nil, cancelButtonTitle: "OK");
+                let alertView:UIAlertView = UIAlertView(title: "Error !", message:error.description, delegate: nil, cancelButtonTitle: "OK");
                 alertView.show();
             }
         })
@@ -112,7 +110,9 @@ class RoomViewController: UIViewController {
     
    
     func accessSetup(){
-        let msgStr : String = "You are on the Room screen. You can set the brightness and color of the light of Hue Lamp. Scroll the slider left or right, to set the brightness and in oder to set the color of the light, tap on the color or effect. Current brightness of the Hue lamp is \(slider.value)"
+        let value = (selectedLight?.lightState.brightness.floatValue)!
+
+        let msgStr : String = "You are on the Room screen. You can set the brightness and color of the light of Hue Lamp. Scroll the slider left or right to set the brightness and in oder to set the color of the light tap on the color. Current brightness of the Hue lamp is \(value)"
         UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, msgStr);
 
     }

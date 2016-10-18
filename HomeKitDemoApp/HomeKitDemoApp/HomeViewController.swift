@@ -148,8 +148,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func addBeacon(sender: AnyObject) {
-       let addBeacon = self.storyboard?.instantiateViewControllerWithIdentifier("AddBeaconViewController") as! AddBeaconViewController
-        self.navigationController?.pushViewController(addBeacon, animated: true)
+//       let addBeacon = self.storyboard?.instantiateViewControllerWithIdentifier("AddBeaconViewController") as! AddBeaconViewController
+//        self.navigationController?.pushViewController(addBeacon, animated: true)
     }
    
     func accessSetUp(){
