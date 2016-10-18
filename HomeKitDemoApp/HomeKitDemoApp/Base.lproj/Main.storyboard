@@ -231,12 +231,10 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2uc-xf-P8W">
-                                <frame key="frameInset" minX="460" minY="80" width="51" height="31"/>
-                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2uc-xf-P8W"/>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lOv-ZI-M0x">
                                 <connections>
-                                    <action selector="sliderValueChanged:" destination="Pjr-hk-fox" eventType="touchUpInside" id="Cxo-0b-ioP"/>
+                                    <action selector="sliderValueChanged:" destination="Pjr-hk-fox" eventType="touchUpInside" id="ggi-j2-SmG"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0t-Ic-koA">
@@ -248,47 +246,47 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnq-3w-nFU">
-                                <frame key="frameInset" minX="39" minY="355" width="46" height="30"/>
+                                <frame key="frameInset" minX="39" minY="355" width="46" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
                                 <state key="normal" title="Red"/>
                                 <connections>
-                                    <action selector="redActionWithSender:" destination="Pjr-hk-fox" eventType="touchUpInside" id="9un-Wv-hs5"/>
+                                    <action selector="redBtnClick:" destination="Pjr-hk-fox" eventType="touchUpInside" id="7Br-C2-dBF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zuy-hB-1B0">
-                                <frame key="frameInset" minX="127" minY="355" width="46" height="30"/>
+                                <frame key="frameInset" minX="127" minY="355" width="46" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
                                 <state key="normal" title="Blue"/>
                                 <connections>
-                                    <action selector="blueActionWithSender:" destination="Pjr-hk-fox" eventType="touchUpInside" id="pBM-cX-T2a"/>
+                                    <action selector="blueBtnClick:" destination="Pjr-hk-fox" eventType="touchUpInside" id="iNm-Fn-DRO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ca-j6-nGS">
-                                <frame key="frameInset" minX="203" minY="355" width="46" height="30"/>
+                                <frame key="frameInset" minX="203" minY="355" width="46" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
                                 <state key="normal" title="Yellow"/>
                                 <connections>
-                                    <action selector="yellowActionWithSender:" destination="Pjr-hk-fox" eventType="touchUpInside" id="SrA-4v-q1d"/>
+                                    <action selector="yellowBtnClick:" destination="Pjr-hk-fox" eventType="touchUpInside" id="WKj-0s-GWs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOu-lK-6Ci">
-                                <frame key="frameInset" minX="39" minY="407" width="46" height="30"/>
+                                <frame key="frameInset" minX="39" minY="407" width="46" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
-                                <state key="normal" title="White"/>
+                                <state key="normal" title="Lavander"/>
                                 <connections>
-                                    <action selector="whiteActionWithSender:" destination="Pjr-hk-fox" eventType="touchUpInside" id="zCF-Uz-dOw"/>
+                                    <action selector="lavenderBtnClick:" destination="Pjr-hk-fox" eventType="touchUpInside" id="Rcc-sJ-yKk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Mq-ai-LJp">
@@ -299,7 +297,7 @@
                                 </accessibility>
                                 <state key="normal" title="Green"/>
                                 <connections>
-                                    <action selector="greenActionWithSender:" destination="Pjr-hk-fox" eventType="touchUpInside" id="lfB-9S-VIT"/>
+                                    <action selector="greenBtnClick:" destination="Pjr-hk-fox" eventType="touchUpInside" id="YQ3-vh-gWB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaV-uQ-bzB">
@@ -310,7 +308,7 @@
                                 </accessibility>
                                 <state key="normal" title="Effect1"/>
                                 <connections>
-                                    <action selector="effect1ActionWithSender:" destination="Pjr-hk-fox" eventType="touchUpInside" id="KmY-08-8j6"/>
+                                    <action selector="effect1BtnClick:" destination="Pjr-hk-fox" eventType="touchUpInside" id="epx-Gv-Ssg"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="List of color for light effect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRd-Cz-LhT">
@@ -335,10 +333,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bluebutton" destination="Zuy-hB-1B0" id="3d5-9J-lqf"/>
                         <outlet property="brightnessValueLbl" destination="N0t-Ic-koA" id="ZGu-WU-UiU"/>
                         <outlet property="controlSwitch" destination="2uc-xf-P8W" id="WyE-aM-7VB"/>
+                        <outlet property="effect1Button" destination="zaV-uQ-bzB" id="54g-wI-VuI"/>
+                        <outlet property="greenButton" destination="1Mq-ai-LJp" id="0C4-VH-y2X"/>
                         <outlet property="headerLabel" destination="CF8-SD-fxD" id="1Un-wC-RJ5"/>
+                        <outlet property="lavanderButton" destination="kOu-lK-6Ci" id="3X1-vn-YUT"/>
+                        <outlet property="redbutton" destination="wnq-3w-nFU" id="zM2-9C-CLY"/>
                         <outlet property="slider" destination="lOv-ZI-M0x" id="yoP-rr-Jm0"/>
+                        <outlet property="yellowButton" destination="0Ca-j6-nGS" id="tVC-T1-rx5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Weq-Vu-2N2" userLabel="First Responder" sceneMemberID="firstResponder"/>
