@@ -10,13 +10,11 @@ import UIKit
 import HomeKit
 import Speech
 
-var kIdentifierForLight1 = "one"
-var kIdentifierForLight2 = "two"
-var kIdentifierForLight3 = "three"
-var kOnIdentifier = "on"
-var kOffIdentifier = "off"
-
-var kKeyForIdentifier = "identifier"
+var kIdentifierForLight1 : NSArray = ["one", "One", "1"]
+var kIdentifierForLight2: NSArray = ["Two", "two", "to", "2"]
+var kIdentifierForLight3: NSArray = ["three", "Three", "3"]
+var kOnIdentifier:NSArray = ["On", "on"]
+var kOffIdentifier:NSArray = ["Off", "off"]
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,HomeKitConnectionDelegate, SFSpeechRecognizerDelegate {
 
@@ -345,9 +343,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func receiveNotificationForSpeechText(notificationObj : Notification){
         let roomVC:RoomViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RoomViewController") as! RoomViewController
         let lightCount = lightsArray.count - 1
-        let text:NSString = notificationObj.object as! NSString
+        let commandText:NSString = notificationObj.object as! NSString
         
-        if text.contains(kIdentifierForLight1) {
+        if textContainsKeyword(array: kIdentifierForLight1, text: commandText) {
             for index in 0...lightCount{
                 let dict: PHLight = (self.lightsArray.object(at: index) as? PHLight)!
                 let lightId:NSString = (dict.identifier as NSString)
@@ -356,14 +354,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     roomVC.title = "Light "+dict.identifier
                     if ((dict.lightState.reachable) == 1) {
                         let lightState:PHLightState = PHLightState.init()
-                        if text.contains(kOnIdentifier) {
+                        if textContainsKeyword(array: kOnIdentifier, text: commandText) {
                             lightState.setOn(true)
+                            roomVC.updateLightState((dict.identifier)!, aLightState: lightState)
+                            self.navigationController?.pushViewController(roomVC, animated: true)
                         }
-                        else if text.contains(kOffIdentifier){
+                        else if textContainsKeyword(array: kOffIdentifier, text: commandText){
                             lightState.setOn(false)
+                            roomVC.updateLightState((dict.identifier)!, aLightState: lightState)
+                            self.navigationController?.pushViewController(roomVC, animated: true)
                         }
-                        roomVC.updateLightState((dict.identifier)!, aLightState: lightState)
-                        self.navigationController?.pushViewController(roomVC, animated: true)
                     }
                     else{
                         let alertView:UIAlertView = UIAlertView(title: "Light is not reachable !", message:"Please make sure light is connected to power.", delegate: nil, cancelButtonTitle: "Ok");
@@ -373,7 +373,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
         }
-        else if text.contains(kIdentifierForLight2){
+        else if textContainsKeyword(array: kIdentifierForLight2, text: commandText){
             for index in 0...lightCount{
                 let dict: PHLight = (self.lightsArray.object(at: index) as? PHLight)!
                 let lightId:NSString = (dict.identifier as NSString)
@@ -382,14 +382,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     roomVC.title = "Light "+dict.identifier
                     if ((dict.lightState.reachable) == 1) {
                         let lightState:PHLightState = PHLightState.init()
-                        if text.contains(kOnIdentifier) {
+                        if textContainsKeyword(array: kOnIdentifier, text: commandText) {
                             lightState.setOn(true)
+                            roomVC.updateLightState((dict.identifier)!, aLightState: lightState)
+                            self.navigationController?.pushViewController(roomVC, animated: true)
                         }
-                        else if text.contains(kOffIdentifier){
+                        else if textContainsKeyword(array: kOffIdentifier, text: commandText){
                             lightState.setOn(false)
+                            roomVC.updateLightState((dict.identifier)!, aLightState: lightState)
+                            self.navigationController?.pushViewController(roomVC, animated: true)
                         }
-                        roomVC.updateLightState((dict.identifier)!, aLightState: lightState)
-                        self.navigationController?.pushViewController(roomVC, animated: true)
+                        
                     }
                     else{
                         let alertView:UIAlertView = UIAlertView(title: "Light is not reachable !", message:"Please make sure light is connected to power.", delegate: nil, cancelButtonTitle: "Ok");
@@ -397,8 +400,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
             }
+            
         }
-        else if text.contains(kIdentifierForLight3){
+        else if textContainsKeyword(array: kIdentifierForLight3, text: commandText){
             for index in 0...lightCount{
                 let dict: PHLight = (self.lightsArray.object(at: index) as? PHLight)!
                 let lightId:NSString = (dict.identifier as NSString)
@@ -407,14 +411,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     roomVC.title = "Light "+dict.identifier
                     if ((dict.lightState.reachable) == 1) {
                         let lightState:PHLightState = PHLightState.init()
-                        if text.contains(kOnIdentifier) {
+                        if textContainsKeyword(array: kOnIdentifier, text: commandText) {
                             lightState.setOn(true)
+                            roomVC.updateLightState((dict.identifier)!, aLightState: lightState)
+                            self.navigationController?.pushViewController(roomVC, animated: true)
                         }
-                        else if text.contains(kOffIdentifier){
+                        else if textContainsKeyword(array: kOffIdentifier, text: commandText){
                             lightState.setOn(false)
+                            roomVC.updateLightState((dict.identifier)!, aLightState: lightState)
+                            self.navigationController?.pushViewController(roomVC, animated: true)
                         }
-                        roomVC.updateLightState((dict.identifier)!, aLightState: lightState)
-                        self.navigationController?.pushViewController(roomVC, animated: true)
                     }
                     else{
                         let alertView:UIAlertView = UIAlertView(title: "Light is not reachable !", message:"Please make sure light is connected to power.", delegate: nil, cancelButtonTitle: "Ok");
@@ -422,7 +428,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
             }
+            
         }
+    }
+    
+    func textContainsKeyword(array:NSArray, text:NSString) -> Bool{
+        
+        //TODO: Find avoid detecting on in "Light one off"
+        
+        for keyword in array {
+            if text.contains(keyword as! String) {
+                return true
+            }
+        }
+        return false
     }
 }
 
