@@ -15,7 +15,7 @@ class PushLinkView: UIView,PushLinkDelegate {
     
     func initWithNib()-> UIView{
         self.setUp()
-        return UINib(nibName: "PushLinkView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
+        return UINib(nibName: "PushLinkView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
         
     }
     
@@ -23,7 +23,7 @@ class PushLinkView: UIView,PushLinkDelegate {
         homeKitUtil?.pushLinkDelegate = self
     }
     
-    func buttonNotPressedTime(timeLeft: Float) {
+    func buttonNotPressedTime(_ timeLeft: Float) {
         self.progressView.progress = timeLeft
     }
     

@@ -33,14 +33,14 @@ class RoomViewController: UIViewController {
     }
     
     func setUp(){
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         let backButton = UIBarButtonItem(
             title: "Back",
-            style: UIBarButtonItemStyle.Plain, // Note: .Bordered is deprecated
+            style: UIBarButtonItemStyle.plain, // Note: .Bordered is deprecated
             target: nil,
             action: nil
         )
@@ -48,7 +48,7 @@ class RoomViewController: UIViewController {
         self.accessSetup();
         let switchState:Bool = (selectedLight?.lightState.on.boolValue)!
         self.controlSwitch.setOn(switchState, animated: true)
-        self.controlSwitch.addTarget(self, action:#selector(RoomViewController.switchValueChangedAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.controlSwitch.addTarget(self, action:#selector(RoomViewController.switchValueChangedAction(_:)), for: UIControlEvents.valueChanged)
         
         self.slider.value = ((selectedLight?.lightState.brightness.floatValue)! / 250.0)
         self.brightnessValueLbl.text = "\(self.slider.value * 250)"
@@ -58,53 +58,53 @@ class RoomViewController: UIViewController {
         super.viewWillLayoutSubviews()
     }
     
-    func switchValueChangedAction(aSwitch:UISwitch){
+    func switchValueChangedAction(_ aSwitch:UISwitch){
         let lightState:PHLightState = PHLightState.init()
         
-        let value = aSwitch.on
-        lightState.setOnBool(value)
+        let value = aSwitch.isOn
+        lightState.setOn(value)
         self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
     }
     
-    @IBAction func sliderValueChanged(sender: UISlider) {
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
         let lightState:PHLightState = PHLightState.init()
         let brightness = Int(sender.value * 250)
         self.brightnessValueLbl.text = "\(brightness)"
-        lightState.brightness = NSNumber.init(integer: brightness)
+        lightState.brightness = NSNumber.init(value: brightness as Int)
         self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
     }
     
     
-    func updateLightState(aLightIdentifier:String, aLightState:PHLightState){
-        bridgeSendAPI?.updateLightStateForId(aLightIdentifier, withLightState: aLightState, completionHandler: { (error) in
+    func updateLightState(_ aLightIdentifier:String, aLightState:PHLightState){
+        bridgeSendAPI?.updateLightState(forId: aLightIdentifier, with: aLightState, completionHandler: { (error) in
             if error != nil{
-                let alertView:UIAlertView = UIAlertView(title: "Error !", message:error.description, delegate: nil, cancelButtonTitle: "OK");
+                let alertView:UIAlertView = UIAlertView(title: "Error !", message:error!.description, delegate: nil, cancelButtonTitle: "OK");
                 alertView.show();
             }
         })
         
     }
 
-    @IBAction func redBtnClick(sender: AnyObject) {
+    @IBAction func redBtnClick(_ sender: AnyObject) {
         let lightState:PHLightState = PHLightState.init()
-        lightState.hue = NSNumber.init(int: 0)
-        lightState.saturation = NSNumber.init(int: 100)
+        lightState.hue = NSNumber.init(value: 0 as Int32)
+        lightState.saturation = NSNumber.init(value: 100 as Int32)
         self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
     }
     
     
-    @IBAction func blueBtnClick(sender: AnyObject) {
+    @IBAction func blueBtnClick(_ sender: AnyObject) {
         let lightState:PHLightState = PHLightState.init()
-        lightState.x = NSNumber.init(float: 0.229)
-        lightState.y = NSNumber.init(float: 0.1559)
+        lightState.x = NSNumber.init(value: 0.229 as Float)
+        lightState.y = NSNumber.init(value: 0.1559 as Float)
         self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
     }
     
     
-    @IBAction func yellowBtnClick(sender: AnyObject) {
+    @IBAction func yellowBtnClick(_ sender: AnyObject) {
         let lightState:PHLightState = PHLightState.init()
-        lightState.x = NSNumber.init(float: 0.859)
-        lightState.y = NSNumber.init(float: 0.899)
+        lightState.x = NSNumber.init(value: 0.859 as Float)
+        lightState.y = NSNumber.init(value: 0.899 as Float)
         self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
     }
     

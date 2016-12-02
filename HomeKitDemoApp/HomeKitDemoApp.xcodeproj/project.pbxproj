@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B1797671DF17AE400FC1F5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1797661DF17AE400FC1F5B /* ViewController.swift */; };
 		2B5828DE1DA7A12700C64612 /* AddBeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5828DD1DA7A12700C64612 /* AddBeaconViewController.swift */; };
 		2B5828E01DA7D15400C64612 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5828DF1DA7D15400C64612 /* RoomViewController.swift */; };
 		2B61799E1D9267BD003B8CF9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61799D1D9267BD003B8CF9 /* HomeViewController.swift */; };
@@ -20,7 +21,7 @@
 		2BD1F2BA1D7D96970096280E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD1F2B81D7D96970096280E /* LaunchScreen.storyboard */; };
 		2BD1F2C51D7D96970096280E /* HomeKitDemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1F2C41D7D96970096280E /* HomeKitDemoAppTests.swift */; };
 		2BD1F2DE1D7D96C60096280E /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD1F2DD1D7D96C60096280E /* HomeKit.framework */; };
-		3B2BF4031DAE0914006E0882 /* HueSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2BF4021DAE0914006E0882 /* HueSDK_iOS.framework */; };
+		2BE279771DF176AD008C57EB /* HueSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE279761DF176AD008C57EB /* HueSDK_iOS.framework */; };
 		3BA5977E1D7D9D000002B61C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5977D1D7D9D000002B61C /* Constant.swift */; };
 		3BAC49801D9B85F3002A558C /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC497F1D9B85F3002A558C /* RoomCell.swift */; };
 		7D97AB16A5A38364B8798E52 /* Pods_HomeKitDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB92DD1A1477A68F89EBDD0 /* Pods_HomeKitDemoApp.framework */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B1797661DF17AE400FC1F5B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2B5828DD1DA7A12700C64612 /* AddBeaconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeaconViewController.swift; sourceTree = "<group>"; };
 		2B5828DF1DA7D15400C64612 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		2B61799D1D9267BD003B8CF9 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +61,8 @@
 		2BD1F2D11D7D96970096280E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BD1F2DD1D7D96C60096280E /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		2BD1F2DF1D7D96C60096280E /* HomeKitDemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeKitDemoApp.entitlements; sourceTree = "<group>"; };
-		3B2BF4021DAE0914006E0882 /* HueSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HueSDK_iOS.framework; sourceTree = "<group>"; };
+		2BE2796F1DF1760C008C57EB /* HueSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HueSDK_iOS.framework; sourceTree = "<group>"; };
+		2BE279761DF176AD008C57EB /* HueSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HueSDK_iOS.framework; sourceTree = "<group>"; };
 		3BA5977D1D7D9D000002B61C /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3BAC497F1D9B85F3002A558C /* RoomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
 		4EBD133BE9E8C9360EBC5ECD /* Pods-HomeKitDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeKitDemoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HomeKitDemoApp/Pods-HomeKitDemoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,7 +83,7 @@
 			files = (
 				2B6179A01D926CC3003B8CF9 /* CoreLocation.framework in Frameworks */,
 				2BD1F2DE1D7D96C60096280E /* HomeKit.framework in Frameworks */,
-				3B2BF4031DAE0914006E0882 /* HueSDK_iOS.framework in Frameworks */,
+				2BE279771DF176AD008C57EB /* HueSDK_iOS.framework in Frameworks */,
 				7D97AB16A5A38364B8798E52 /* Pods_HomeKitDemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +102,7 @@
 		2B22FD001D82D29D00586B97 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2B1797661DF17AE400FC1F5B /* ViewController.swift */,
 				2B61799D1D9267BD003B8CF9 /* HomeViewController.swift */,
 				2B5828DD1DA7A12700C64612 /* AddBeaconViewController.swift */,
 				2B5828DF1DA7D15400C64612 /* RoomViewController.swift */,
@@ -135,7 +139,7 @@
 		2BD1F2A31D7D96970096280E = {
 			isa = PBXGroup;
 			children = (
-				3B2BF4021DAE0914006E0882 /* HueSDK_iOS.framework */,
+				2BE279761DF176AD008C57EB /* HueSDK_iOS.framework */,
 				2B61799F1D926CC3003B8CF9 /* CoreLocation.framework */,
 				2BD1F2DD1D7D96C60096280E /* HomeKit.framework */,
 				2BD1F2AE1D7D96970096280E /* HomeKitDemoApp */,
@@ -216,6 +220,7 @@
 		E413727E95E281405A59523C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2BE2796F1DF1760C008C57EB /* HueSDK_iOS.framework */,
 				FCB92DD1A1477A68F89EBDD0 /* Pods_HomeKitDemoApp.framework */,
 				54750A41BC1467D9629D802D /* Pods_HomeKitDemoAppTests.framework */,
 				53D53F1FBF251657A8348011 /* Pods_HomeKitDemoAppUITests.framework */,
@@ -280,6 +285,7 @@
 					2BD1F2AB1D7D96970096280E = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = V47EB7AGDF;
+						LastSwiftMigration = 0810;
 						SystemCapabilities = {
 							com.apple.HomeKit = {
 								enabled = 1;
@@ -288,6 +294,7 @@
 					};
 					2BD1F2BF1D7D96970096280E = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0810;
 						TestTargetID = 2BD1F2AB1D7D96970096280E;
 					};
 				};
@@ -433,6 +440,7 @@
 				2B61799E1D9267BD003B8CF9 /* HomeViewController.swift in Sources */,
 				2BCD6D531D9541C90010999E /* HomeKitUtility.swift in Sources */,
 				2BD1F2B01D7D96970096280E /* AppDelegate.swift in Sources */,
+				2B1797671DF17AE400FC1F5B /* ViewController.swift in Sources */,
 				2B5828DE1DA7A12700C64612 /* AddBeaconViewController.swift in Sources */,
 				2B6D0BA31D9BD2F300C4E3AA /* PushLinkView.swift in Sources */,
 				3BAC49801D9B85F3002A558C /* RoomCell.swift in Sources */,
@@ -597,7 +605,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HomeKitDemoApp-Bridgiing-Header.h";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -628,7 +636,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HomeKitDemoApp-Bridgiing-Header.h";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -641,6 +649,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Siddharth.HomeKitDemoAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HomeKitDemoApp.app/HomeKitDemoApp";
 			};
 			name = Debug;
@@ -654,6 +663,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Siddharth.HomeKitDemoAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HomeKitDemoApp.app/HomeKitDemoApp";
 			};
 			name = Release;

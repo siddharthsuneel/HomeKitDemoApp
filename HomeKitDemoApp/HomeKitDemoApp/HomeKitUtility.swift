@@ -11,14 +11,18 @@ import HomeKit
 
 @objc protocol PushLinkDelegate {
     
-    optional func buttonNotPressedTime(timeLeft:Float)
+    @objc optional func buttonNotPressedTime(_ timeLeft:Float)
 }
 
 @objc protocol HomeKitConnectionDelegate{
-    optional func connectionUpdated()
+    @objc optional func connectionUpdated()
 }
 
 class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccessoryDelegate, HMAccessoryBrowserDelegate {
+    
+//    private static var __once: () = {
+//            Static.instance = HomeKitUtility()
+//        }()
     
     var pushLinkDelegate: PushLinkDelegate?
     var connectionDelegate: HomeKitConnectionDelegate?
@@ -29,34 +33,37 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
     var phResourcesCache:PHBridgeResourcesCache?
     var bridgesFound : Dictionary<String,String>?
     var accessoryBrowser:HMAccessoryBrowser = HMAccessoryBrowser()
-    var phNotificationManager : PHNotificationManager = PHNotificationManager.defaultManager()
+    var phNotificationManager : PHNotificationManager = PHNotificationManager.default()
     
     var homes:Array<HMHome> = [];
     var accessories:Array<HMAccessory> = [];
     var phAccessories:Array<PHLight> = [];
     var selectedPhAccessories:Array<PHLight> = [];
     
-    class var sharedInstance: HomeKitUtility {
-        struct Static {
-            static var instance: HomeKitUtility?
-            static var token: dispatch_once_t = 0
-        }
-        
-        dispatch_once(&Static.token) {
-            Static.instance = HomeKitUtility()
-        }
-        
-        return Static.instance!
-    }
+//    class var sharedInstance: HomeKitUtility {
+//        struct Static {
+//            static var instance: HomeKitUtility?
+//            static var token: Int = 0
+//        }
+//        
+//        _ = HomeKitUtility.__once
+//        
+//        return Static.instance!
+//    }
+    
+    static let sharedInstance : HomeKitUtility = {
+        let instance = HomeKitUtility()
+        return instance
+    }()
     
     //MARK: - Initialisation Methods
     func initializeHomeKit(){
-        let timer = NSTimer(timeInterval: 60, target: self, selector: #selector(HomeKitUtility.loadConnectedBridgeValues), userInfo: nil, repeats: true);
+        let timer = Timer(timeInterval: 60, target: self, selector: #selector(HomeKitUtility.loadConnectedBridgeValues), userInfo: nil, repeats: true);
         timer.fire();
         
         print("initializing HomeKit");
         self.homeManager.delegate = self;
-        self.homes.removeAll(keepCapacity: false);
+        self.homes.removeAll(keepingCapacity: false);
         for home in homeManager.homes{
             self.homes.append(home);
             
@@ -69,7 +76,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
         self.initializePHHueSDK();
     }
     
-    func isPrimaryHomeExist(homeName:String!) -> Bool{
+    func isPrimaryHomeExist(_ homeName:String!) -> Bool{
         
         var isPrimaryHomeExist:Bool = false;
         
@@ -85,13 +92,13 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
         return isPrimaryHomeExist;
     }
     
-    func addHome(homeName:String!, completionHandler completion: ((Bool, NSError?) -> Void)!){
+    func addHome(_ homeName:String!, completionHandler completion: ((Bool, NSError?) -> Void)!){
         
         print("ADD HOME");
          
-        homeManager.addHomeWithName(homeName, completionHandler: { (home:HMHome?, error:NSError?) -> Void in
+        homeManager.addHome(withName: homeName, completionHandler: { (home:HMHome?, error:NSError?) -> Void in
             if(error != nil){
-                print(error);
+                //print(error);
                 completion(false, error);
             }
             else{
@@ -99,7 +106,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
                     _home.name == home!.name;
                 };
                 if(filteredHomes.count > 0){
-                    let index:Int? = self.homes.indexOf(filteredHomes.last!);
+                    let index:Int? = self.homes.index(of: filteredHomes.last!);
                     if(index == nil){
                         self.homes.append(home!);
                     }
@@ -112,26 +119,26 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
                 }
                 completion(true, nil);
             }
-        })
+        } as! (HMHome?, Error?) -> Void)
         
     }
 
     func initializePHHueSDK(){
         self.phHueSDK = PHHueSDK();
-        self.phHueSDK!.startUpSDK();
+        self.phHueSDK!.startUp();
         self.phHueSDK!.enableLogging(true);
         self.registerPHHueSDKNotifications();
         self.enableLocalHeartbeat();
     }
     
     func registerPHHueSDKNotifications(){
-        self.phNotificationManager.registerObject(self, withSelector: #selector(HomeKitUtility.checkConnectionState), forNotification: LOCAL_CONNECTION_NOTIFICATION);
-        self.phNotificationManager.registerObject(self, withSelector: #selector(HomeKitUtility.noLocalConnection), forNotification: NO_LOCAL_CONNECTION_NOTIFICATION);
+        self.phNotificationManager.register(self, with: #selector(HomeKitUtility.checkConnectionState), forNotification: LOCAL_CONNECTION_NOTIFICATION);
+        self.phNotificationManager.register(self, with: #selector(HomeKitUtility.noLocalConnection), forNotification: NO_LOCAL_CONNECTION_NOTIFICATION);
         //        self.phNotificationManager.registerObject(self, withSelector: Selector("notAuthenticated"), forNotification: NO_LOCAL_AUTHENTICATION_NOTIFICATION);
-        self.phNotificationManager.registerObject(self, withSelector: #selector(HomeKitUtility.authenticationSuccess), forNotification: PUSHLINK_LOCAL_AUTHENTICATION_SUCCESS_NOTIFICATION);
-        self.phNotificationManager.registerObject(self, withSelector: #selector(HomeKitUtility.authenticationFailed), forNotification: PUSHLINK_LOCAL_AUTHENTICATION_FAILED_NOTIFICATION);
-        self.phNotificationManager.registerObject(self, withSelector: #selector(HomeKitUtility.noLocalBridge), forNotification: PUSHLINK_NO_LOCAL_BRIDGE_KNOWN_NOTIFICATION);
-        self.phNotificationManager.registerObject(self, withSelector: #selector(HomeKitUtility.buttonNotPressed(_:)), forNotification: PUSHLINK_BUTTON_NOT_PRESSED_NOTIFICATION);
+        self.phNotificationManager.register(self, with: #selector(HomeKitUtility.authenticationSuccess), forNotification: PUSHLINK_LOCAL_AUTHENTICATION_SUCCESS_NOTIFICATION);
+        self.phNotificationManager.register(self, with: #selector(HomeKitUtility.authenticationFailed), forNotification: PUSHLINK_LOCAL_AUTHENTICATION_FAILED_NOTIFICATION);
+        self.phNotificationManager.register(self, with: #selector(HomeKitUtility.noLocalBridge), forNotification: PUSHLINK_NO_LOCAL_BRIDGE_KNOWN_NOTIFICATION);
+        self.phNotificationManager.register(self, with: #selector(HomeKitUtility.buttonNotPressed(_:)), forNotification: PUSHLINK_BUTTON_NOT_PRESSED_NOTIFICATION);
         
     }
     
@@ -186,7 +193,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
             else{
                 
                 if self.phResourcesCache!.bridgeConfiguration != nil && self.phResourcesCache!.bridgeConfiguration.ipaddress != nil {
-                    self.phAccessories.removeAll(keepCapacity: false);
+                    self.phAccessories.removeAll(keepingCapacity: false);
                     self.connectionDelegate?.connectionUpdated!()
                     if(self.phResourcesCache!.lights != nil){
                         for object in self.phResourcesCache!.lights {
@@ -212,9 +219,9 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
         self.disableLocalHeartbeat();
         
         self.bridgeSearch = PHBridgeSearching(upnpSearch: true, andPortalSearch: true, andIpAdressSearch: true)
-        self.bridgeSearch!.startSearchWithCompletionHandler({ bridgesFound -> Void in
+        self.bridgeSearch!.startSearch(completionHandler: { bridgesFound -> Void in
             
-            if bridgesFound.count > 0{
+            if (bridgesFound?.count)! > 0{
                 
                 self.bridgesFound = (bridgesFound as? Dictionary<String,String>)
                 let macAddress:String = self.bridgesFound!.keys.first!
@@ -288,7 +295,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
         let alertView:UIAlertView = UIAlertView(title: "", message:"Authentication is successful", delegate: nil, cancelButtonTitle: "Ok");
         alertView.show();
         // Deregister for all notifications
-        self.phNotificationManager.deregisterObjectForAllNotifications(self);
+        self.phNotificationManager.deregisterObject(forAllNotifications: self);
         
         self.phResourcesCache = PHBridgeResourcesReader.readBridgeResourcesCache();
         self.connectionDelegate?.connectionUpdated!()
@@ -299,7 +306,7 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
             
         }
         else{
-            print(self.phResourcesCache?.lights);
+            print(self.phResourcesCache!.lights);
         }
         
         // Inform delegate
@@ -339,12 +346,12 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
      This method is called when the pushlinking is still ongoing but no button was pressed yet.
      @param notification The notification which contains the pushlinking percentage which has passed.
      */
-    func buttonNotPressed(notification:NSNotification) {
+    func buttonNotPressed(_ notification:Notification) {
 //        let alertView:UIAlertView = UIAlertView(title: "", message:"Push link button not pressed !", delegate: nil, cancelButtonTitle: "Ok");
 //        alertView.show();
         
-        let dict : NSDictionary = notification.userInfo!
-        let progressPercent:AnyObject? = dict.objectForKey("progressPercentage")
+        let dict : NSDictionary = notification.userInfo! as NSDictionary
+        let progressPercent:AnyObject? = dict.object(forKey: "progressPercentage") as AnyObject?
         let progressBarValue:Float? = (progressPercent?.floatValue)!/100
         self.pushLinkDelegate?.buttonNotPressedTime!(progressBarValue!)
     }

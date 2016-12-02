@@ -31,7 +31,7 @@ class AddBeaconViewController: UIViewController {
     }
     */
 
-    @IBAction func cancelBtnClick(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func cancelBtnClick(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
