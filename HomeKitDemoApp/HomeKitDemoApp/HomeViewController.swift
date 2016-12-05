@@ -13,8 +13,10 @@ import Speech
 var kIdentifierForLight1 : NSArray = ["one", "One", "1"]
 var kIdentifierForLight2: NSArray = ["Two", "two", "to", "2"]
 var kIdentifierForLight3: NSArray = ["three", "Three", "3"]
-var kOnIdentifier:NSArray = ["On", "on"]
-var kOffIdentifier:NSArray = ["Off", "off"]
+
+// Avoid using on/off because "on" matches with "one"
+var kOnIdentifier:NSArray = ["Open", "open"]
+var kOffIdentifier:NSArray = ["Close", "close"]
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,HomeKitConnectionDelegate, SFSpeechRecognizerDelegate {
 
@@ -32,6 +34,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var homeKitUtil:HomeKitUtility? = HomeKitUtility.sharedInstance
     var cache:PHBridgeResourcesCache?
+    var roomVC:RoomViewController?
     
     //MARK: - SpeechKit Var Initialisation
     
@@ -79,6 +82,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             selector: #selector(receiveNotificationForSpeechText),
             name: NSNotification.Name(rawValue: "Command"),
             object: nil)
+        
+        roomVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RoomViewController") as! RoomViewController
         
         initialSetup()
         
@@ -341,7 +346,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func receiveNotificationForSpeechText(notificationObj : Notification){
-        let roomVC:RoomViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RoomViewController") as! RoomViewController
         let lightCount = lightsArray.count - 1
         let commandText:NSString = notificationObj.object as! NSString
         
@@ -350,19 +354,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let dict: PHLight = (self.lightsArray.object(at: index) as? PHLight)!
                 let lightId:NSString = (dict.identifier as NSString)
                 if (lightId.isEqual(to: "1")) {
-                    roomVC.selectedLight = dict
-                    roomVC.title = "Light "+dict.identifier
+                    roomVC?.selectedLight = dict
+                    roomVC?.title = "Light "+dict.identifier
                     if ((dict.lightState.reachable) == 1) {
                         let lightState:PHLightState = PHLightState.init()
                         if textContainsKeyword(array: kOnIdentifier, text: commandText) {
                             lightState.setOn(true)
-                            roomVC.updateLightState((dict.identifier)!, aLightState: lightState)
-                            self.navigationController?.pushViewController(roomVC, animated: true)
+                            roomVC?.updateLightState((dict.identifier)!, aLightState: lightState)
+                            self.navigationController?.pushViewController(roomVC!, animated: true)
                         }
                         else if textContainsKeyword(array: kOffIdentifier, text: commandText){
                             lightState.setOn(false)
-                            roomVC.updateLightState((dict.identifier)!, aLightState: lightState)
-                            self.navigationController?.pushViewController(roomVC, animated: true)
+                            roomVC?.updateLightState((dict.identifier)!, aLightState: lightState)
+                            self.navigationController?.pushViewController(roomVC!, animated: true)
                         }
                     }
                     else{
@@ -378,19 +382,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let dict: PHLight = (self.lightsArray.object(at: index) as? PHLight)!
                 let lightId:NSString = (dict.identifier as NSString)
                 if (lightId.isEqual(to: "2")) {
-                    roomVC.selectedLight = dict
-                    roomVC.title = "Light "+dict.identifier
+                    roomVC?.selectedLight = dict
+                    roomVC?.title = "Light "+dict.identifier
                     if ((dict.lightState.reachable) == 1) {
                         let lightState:PHLightState = PHLightState.init()
                         if textContainsKeyword(array: kOnIdentifier, text: commandText) {
                             lightState.setOn(true)
-                            roomVC.updateLightState((dict.identifier)!, aLightState: lightState)
-                            self.navigationController?.pushViewController(roomVC, animated: true)
+                            roomVC?.updateLightState((dict.identifier)!, aLightState: lightState)
+                            self.navigationController?.pushViewController(roomVC!, animated: true)
                         }
                         else if textContainsKeyword(array: kOffIdentifier, text: commandText){
                             lightState.setOn(false)
-                            roomVC.updateLightState((dict.identifier)!, aLightState: lightState)
-                            self.navigationController?.pushViewController(roomVC, animated: true)
+                            roomVC?.updateLightState((dict.identifier)!, aLightState: lightState)
+                            self.navigationController?.pushViewController(roomVC!, animated: true)
                         }
                         
                     }
@@ -407,19 +411,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let dict: PHLight = (self.lightsArray.object(at: index) as? PHLight)!
                 let lightId:NSString = (dict.identifier as NSString)
                 if (lightId.isEqual(to: "3")) {
-                    roomVC.selectedLight = dict
-                    roomVC.title = "Light "+dict.identifier
+                    roomVC?.selectedLight = dict
+                    roomVC?.title = "Light "+dict.identifier
                     if ((dict.lightState.reachable) == 1) {
                         let lightState:PHLightState = PHLightState.init()
                         if textContainsKeyword(array: kOnIdentifier, text: commandText) {
                             lightState.setOn(true)
-                            roomVC.updateLightState((dict.identifier)!, aLightState: lightState)
-                            self.navigationController?.pushViewController(roomVC, animated: true)
+                            roomVC?.updateLightState((dict.identifier)!, aLightState: lightState)
+                            self.navigationController?.pushViewController(roomVC!, animated: true)
                         }
                         else if textContainsKeyword(array: kOffIdentifier, text: commandText){
                             lightState.setOn(false)
-                            roomVC.updateLightState((dict.identifier)!, aLightState: lightState)
-                            self.navigationController?.pushViewController(roomVC, animated: true)
+                            roomVC?.updateLightState((dict.identifier)!, aLightState: lightState)
+                            self.navigationController?.pushViewController(roomVC!, animated: true)
                         }
                     }
                     else{
@@ -442,6 +446,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         return false
+    }
+    
+    func decreaseBrightness(light: PHLight){
+        
+    }
+    func decreaseBrightness(by:NSNumber, light:PHLight){
+        let lightState:PHLightState = PHLightState.init()
+        lightState.brightness = NSNumber.init(value: by as Int)
+        roomVC.updateL?ightState(light.identifier, aLightState: lightState)
     }
 }
 
