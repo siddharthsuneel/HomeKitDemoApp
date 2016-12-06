@@ -454,7 +454,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func decreaseBrightness(by:NSNumber, light:PHLight){
         let lightState:PHLightState = PHLightState.init()
         lightState.brightness = NSNumber.init(value: by as Int)
-        roomVC.updateL?ightState(light.identifier, aLightState: lightState)
+        roomVC?.updateLightState(light.identifier, aLightState: lightState)
     }
 }
 

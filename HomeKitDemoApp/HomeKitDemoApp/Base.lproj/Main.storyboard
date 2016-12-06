@@ -117,14 +117,14 @@
                                     <outlet property="delegate" destination="XO4-5K-Drd" id="XS3-JT-ycg"/>
                                 </connections>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXQ-gK-QGv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXQ-gK-QGv">
                                 <rect key="frame" x="487" y="1221" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="P1V-8D-TWy"/>
                                     <constraint firstAttribute="width" constant="50" id="nih-MU-JYy"/>
                                 </constraints>
-                                <state key="normal" title="Speak">
+                                <state key="normal" image="microphoneIcon">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -374,7 +374,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What can i do for you ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Bl-Bj-pFf">
-                                <rect key="frame" x="36" y="120" width="950" height="21"/>
+                                <rect key="frame" x="36" y="76" width="950" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="6gh-nl-wlr"/>
                                 </constraints>
@@ -383,7 +383,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n8P-gO-8sd">
-                                <rect key="frame" x="67" y="181" width="889" height="783"/>
+                                <rect key="frame" x="67" y="137" width="889" height="827"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -426,4 +426,7 @@
             <point key="canvasLocation" x="-109" y="1070"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="microphoneIcon" width="96" height="96"/>
+    </resources>
 </document>
