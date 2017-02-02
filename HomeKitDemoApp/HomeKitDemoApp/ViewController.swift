@@ -9,6 +9,7 @@
 import UIKit
 import Speech
 
+@available(iOS 10.0, *)
 class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBOutlet weak var textView: UITextView!

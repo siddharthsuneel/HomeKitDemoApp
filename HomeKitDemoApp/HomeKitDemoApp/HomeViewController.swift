@@ -11,13 +11,14 @@ import HomeKit
 import Speech
 
 var kIdentifierForLight1 : NSArray = ["one", "One", "1"]
-var kIdentifierForLight2: NSArray = ["Two", "two", "to", "2"]
+var kIdentifierForLight2: NSArray = ["Two", "two", "to", "2","too"]
 var kIdentifierForLight3: NSArray = ["three", "Three", "3"]
 
 // Avoid using on/off because "on" matches with "one"
 var kOnIdentifier:NSArray = ["Open", "open"]
 var kOffIdentifier:NSArray = ["Close", "close"]
 
+@available(iOS 10.0, *)
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,HomeKitConnectionDelegate, SFSpeechRecognizerDelegate {
 
     @IBOutlet var statusValueLbl: UILabel!
@@ -35,6 +36,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var homeKitUtil:HomeKitUtility? = HomeKitUtility.sharedInstance
     var cache:PHBridgeResourcesCache?
     var roomVC:RoomViewController?
+    var recordingStoppedByUser:Bool = false
+    
     
     //MARK: - SpeechKit Var Initialisation
     
@@ -58,6 +61,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUp()
+        
+        textView.text = "Say something, I'm listening!"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -238,6 +243,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func microphoneTapped(_ sender: AnyObject)
     {
+        recordingStoppedByUser = false
+        if audioEngine.isRunning
+        {
+            recordingStoppedByUser = true
+        }
+        setupRecording()
+    }
+    
+    func setupRecording() {
         if audioEngine.isRunning
         {
             audioEngine.stop()
@@ -312,6 +326,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.recognitionTask = nil
                 
                 self.microphoneButton.isEnabled = true
+                if self.recordingStoppedByUser == false {
+                    self.setupRecording()
+                }
             }
         })
         
@@ -327,8 +344,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } catch {
             print("audioEngine couldn't start because of an error.")
         }
-        
-        textView.text = "Say something, I'm listening!"
         
     }
     
@@ -349,7 +364,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let lightCount = lightsArray.count - 1
         let commandText:NSString = notificationObj.object as! NSString
         
+        if lightCount < 0 {
+            return
+        }
+        
         if textContainsKeyword(array: kIdentifierForLight1, text: commandText) {
+            print("light : \(lightCount)")
             for index in 0...lightCount{
                 let dict: PHLight = (self.lightsArray.object(at: index) as? PHLight)!
                 let lightId:NSString = (dict.identifier as NSString)
@@ -378,6 +398,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
         else if textContainsKeyword(array: kIdentifierForLight2, text: commandText){
+            print("lightCount \(lightCount)")
             for index in 0...lightCount{
                 let dict: PHLight = (self.lightsArray.object(at: index) as? PHLight)!
                 let lightId:NSString = (dict.identifier as NSString)
