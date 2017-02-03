@@ -10,13 +10,14 @@ import UIKit
 import HomeKit
 import Speech
 
-var kIdentifierForLight1 : NSArray = ["one", "One", "1"]
-var kIdentifierForLight2: NSArray = ["Two", "two", "to", "2","too"]
-var kIdentifierForLight3: NSArray = ["three", "Three", "3"]
+var kIdentifierForLight1 : NSArray = ["one", "1"]
+var kIdentifierForLight2: NSArray = ["two", "to", "2","too"]
+var kIdentifierForLight3: NSArray = ["three","3"]
+var kIdentifierForAllLight: NSArray = ["all","call"]
 
-// Avoid using on/off because "on" matches with "one"
-var kOnIdentifier:NSArray = ["Open", "open"]
-var kOffIdentifier:NSArray = ["Close", "close"]
+var kOnIdentifier:NSArray = ["open","on"]
+var kOffIdentifier:NSArray = ["close","off","of"]
+
 
 @available(iOS 10.0, *)
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,HomeKitConnectionDelegate, SFSpeechRecognizerDelegate {
@@ -37,7 +38,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var cache:PHBridgeResourcesCache?
     var roomVC:RoomViewController?
     var recordingStoppedByUser:Bool = false
-    
+    var timerObj:Timer?
+    var lastDate:Date?
     
     //MARK: - SpeechKit Var Initialisation
     
@@ -301,22 +303,34 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         recognitionRequest.shouldReportPartialResults = true
         
+
+        stopTimer()
+        
+        timerObj = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerUpdate), userInfo: nil, repeats: true)
+        
+        lastDate = Date()
+        
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
+            
+            
             
             var isFinal = false
             
             if result != nil
             {
                 self.textView.text = result?.bestTranscription.formattedString
+                print("result -> \(result?.bestTranscription.formattedString)")
                 isFinal = (result?.isFinal)!
                 
                 if(isFinal)
                 {
-                    NotificationCenter.default.post(name: Notification.Name("Command"), object: self.textView.text)
+//                    NotificationCenter.default.post(name: Notification.Name("Command"), object: self.textView.text)
                     
-                    self.textView.text = ""
+  //                  self.textView.text = ""
                 }
             }
+            
+            self.lastDate = Date()
             
             if error != nil || isFinal {
                 self.audioEngine.stop()
@@ -347,6 +361,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    func timerUpdate() {
+        print("time interval since last call -> \(Date().timeIntervalSince(self.lastDate!))")
+        let timeInterval = Date().timeIntervalSince(self.lastDate!)
+        if timeInterval > 2 {
+            lastDate = Date()
+            if self.textView.text.characters.count > 0 {
+                NotificationCenter.default.post(name: Notification.Name("Command"), object: self.textView.text)
+                self.textView.text = ""
+                stopTimer()
+                if self.recordingStoppedByUser == false {
+                    self.setupRecording()
+                }
+            }
+        }
+    }
+    
+    func stopTimer() {
+        if let timer = timerObj {
+            timer.invalidate()
+        }
+    }
+    
     
     // If speech recognition is unavailable or changes its status, the microphoneButton.enable property should be set. For this scenario, we implement the availabilityDidChange method of the SFSpeechRecognizerDelegate protocol.
     
@@ -368,7 +404,23 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             return
         }
         
-        if textContainsKeyword(array: kIdentifierForLight1, text: commandText) {
+        if (commandText as String).characters.count <= 0 {
+            return
+        }
+        
+        if textContainsKeyword(array: kIdentifierForAllLight, text: commandText) {
+            if textContainsKeyword(array: kOnIdentifier, text: commandText) {
+                let lightState:PHLightState = PHLightState.init()
+                lightState.setOn(true)
+                roomVC?.updateAllLights(aLightState: lightState)
+            }
+            else if textContainsKeyword(array: kOffIdentifier, text: commandText) {
+                let lightState:PHLightState = PHLightState.init()
+                lightState.setOn(false)
+                roomVC?.updateAllLights(aLightState: lightState)
+            }
+        }
+        else if textContainsKeyword(array: kIdentifierForLight1, text: commandText) {
             print("light : \(lightCount)")
             for index in 0...lightCount{
                 let dict: PHLight = (self.lightsArray.object(at: index) as? PHLight)!
@@ -381,12 +433,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         if textContainsKeyword(array: kOnIdentifier, text: commandText) {
                             lightState.setOn(true)
                             roomVC?.updateLightState((dict.identifier)!, aLightState: lightState)
-                            self.navigationController?.pushViewController(roomVC!, animated: true)
+                            //self.navigationController?.pushViewController(roomVC!, animated: true)
                         }
                         else if textContainsKeyword(array: kOffIdentifier, text: commandText){
                             lightState.setOn(false)
                             roomVC?.updateLightState((dict.identifier)!, aLightState: lightState)
-                            self.navigationController?.pushViewController(roomVC!, animated: true)
+                            //self.navigationController?.pushViewController(roomVC!, animated: true)
                         }
                     }
                     else{
@@ -410,12 +462,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         if textContainsKeyword(array: kOnIdentifier, text: commandText) {
                             lightState.setOn(true)
                             roomVC?.updateLightState((dict.identifier)!, aLightState: lightState)
-                            self.navigationController?.pushViewController(roomVC!, animated: true)
+                            //self.navigationController?.pushViewController(roomVC!, animated: true)
                         }
                         else if textContainsKeyword(array: kOffIdentifier, text: commandText){
                             lightState.setOn(false)
                             roomVC?.updateLightState((dict.identifier)!, aLightState: lightState)
-                            self.navigationController?.pushViewController(roomVC!, animated: true)
+                            //self.navigationController?.pushViewController(roomVC!, animated: true)
                         }
                         
                     }
@@ -439,12 +491,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         if textContainsKeyword(array: kOnIdentifier, text: commandText) {
                             lightState.setOn(true)
                             roomVC?.updateLightState((dict.identifier)!, aLightState: lightState)
-                            self.navigationController?.pushViewController(roomVC!, animated: true)
+                            //self.navigationController?.pushViewController(roomVC!, animated: true)
                         }
                         else if textContainsKeyword(array: kOffIdentifier, text: commandText){
                             lightState.setOn(false)
                             roomVC?.updateLightState((dict.identifier)!, aLightState: lightState)
-                            self.navigationController?.pushViewController(roomVC!, animated: true)
+                            //self.navigationController?.pushViewController(roomVC!, animated: true)
                         }
                     }
                     else{
@@ -462,8 +514,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //TODO: Find avoid detecting on in "Light one off"
         
         for keyword in array {
-            if text.contains(keyword as! String) {
-                return true
+            
+            let textSring = text as String
+            let textArray = textSring.characters.split{$0 == " "}.map(String.init)
+            
+            for string in textArray {
+                if string.caseInsensitiveCompare(keyword as! String) == ComparisonResult.orderedSame {
+                    return true
+                }
             }
         }
         return false

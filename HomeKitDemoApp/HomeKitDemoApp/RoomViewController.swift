@@ -74,6 +74,14 @@ class RoomViewController: UIViewController {
         self.updateLightState((self.selectedLight?.identifier)!, aLightState: lightState)
     }
     
+    func updateAllLights(aLightState:PHLightState) {
+        bridgeSendAPI?.setLightStateForGroupWithId("0", lightState: aLightState, completionHandler: { (error) in
+            if error != nil {
+                let alertView:UIAlertView = UIAlertView(title: "Error !", message:error!.description, delegate: nil, cancelButtonTitle: "OK");
+                alertView.show();
+            }
+        })
+    }
     
     func updateLightState(_ aLightIdentifier:String, aLightState:PHLightState){
         bridgeSendAPI?.updateLightState(forId: aLightIdentifier, with: aLightState, completionHandler: { (error) in

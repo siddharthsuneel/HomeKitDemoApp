@@ -306,7 +306,11 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
             
         }
         else{
-            print(self.phResourcesCache!.lights);
+            if let _lights = self.phResourcesCache!.lights {
+                print(_lights);
+                
+            }
+            
         }
         
         // Inform delegate
