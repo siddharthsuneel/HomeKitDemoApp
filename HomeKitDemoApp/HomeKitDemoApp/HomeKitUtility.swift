@@ -58,9 +58,8 @@ class HomeKitUtility: NSObject, HMHomeManagerDelegate, HMHomeDelegate, HMAccesso
     
     //MARK: - Initialisation Methods
     func initializeHomeKit(){
-        let timer = Timer(timeInterval: 60, target: self, selector: #selector(HomeKitUtility.loadConnectedBridgeValues), userInfo: nil, repeats: true);
-        timer.fire();
-        
+      Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(HomeKitUtility.loadConnectedBridgeValues), userInfo: nil, repeats: true)
+      
         print("initializing HomeKit");
         self.homeManager.delegate = self;
         self.homes.removeAll(keepingCapacity: false);

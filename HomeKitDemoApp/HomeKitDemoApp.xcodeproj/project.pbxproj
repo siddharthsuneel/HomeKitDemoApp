@@ -284,7 +284,7 @@
 				TargetAttributes = {
 					2BD1F2AB1D7D96970096280E = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = Q7RQMU2UCN;
+						DevelopmentTeam = 4QN443EZLN;
 						LastSwiftMigration = 0810;
 						SystemCapabilities = {
 							com.apple.HomeKit = {
@@ -586,7 +586,7 @@
 				CODE_SIGN_ENTITLEMENTS = HomeKitDemoApp/HomeKitDemoApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = Q7RQMU2UCN;
+				DEVELOPMENT_TEAM = 4QN443EZLN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -602,7 +602,7 @@
 					"\"CocoaLumberjack\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.1800PetMeds.1800PetMedsIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.yogesh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HomeKitDemoApp-Bridgiing-Header.h";
@@ -618,7 +618,7 @@
 				CODE_SIGN_ENTITLEMENTS = HomeKitDemoApp/HomeKitDemoApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = Q7RQMU2UCN;
+				DEVELOPMENT_TEAM = 4QN443EZLN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -634,7 +634,7 @@
 					"\"CocoaLumberjack\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.1800PetMeds.1800PetMedsIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.yogesh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HomeKitDemoApp-Bridgiing-Header.h";
